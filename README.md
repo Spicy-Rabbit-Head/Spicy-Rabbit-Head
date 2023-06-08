@@ -5,6 +5,6 @@
   <!-- 敲代码图片 -->
   <img src="https://cdn.jsdelivr.net/gh/Spicy-Rabbit-Head/Spicy-Rabbit-Head/img/type.gif" /><br>
   <!-- 贪吃蛇代码贡献图 -->
-  <img src="https://cdn.jsdelivr.net/gh/Spicy-Rabbit-Head/Spicy-Rabbit-Head/contrib/github-user-contribution.svg" />
+  <img src="https://cdn.jsdelivr.net/gh/Spicy-Rabbit-Head/Spicy-Rabbit-Head/contrib/github-user-contribution-dark.svg" />
 
 </div>
