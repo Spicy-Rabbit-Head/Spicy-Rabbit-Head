@@ -46,16 +46,15 @@
 ![Nginx](https://img.shields.io/badge/Nginx-009639?logo=nginx&logoColor=fff&style=flat)
 ![C](https://img.shields.io/badge/C-A8B9CC?logo=c&logoColor=000&style=flat)
 ![CSharp](https://img.shields.io/badge/CSharp-239120?logo=csharp&logoColor=fff&style=flat)
-![Python](https://img.shields.io/badge/Python3.11-3776AB?logo=python&logoColor=fff&style=flat)
+![Python](https://img.shields.io/badge/Python3.11-fcf84a?logo=python&logoColor=000&style=flat)
 
   
   
 🧰 常用的工具 
 
-![Linux Badge](https://img.shields.io/badge/Linux-FCC624?logo=linux&logoColor=000&style=flat)
-![Adobe Photoshop Badge](https://img.shields.io/badge/Adobe%20Photoshop-31A8FF?logo=adobephotoshop&logoColor=fff&style=flat)
-![Visual Studio Badge](https://img.shields.io/badge/Visual%20Studio-5C2D91?logo=visualstudio&logoColor=fff&style=flat)
-![GitHub Badge](https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=fff&style=flat)
+![Visual Studio](https://img.shields.io/badge/Visual%20Studio-5C2D91?logo=visualstudio&logoColor=fff&style=flat)
+![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ%20IDEA-fe2464?logo=intelliJiDEA&logoColor=fff&style=flat)
+![Webstorm](https://img.shields.io/badge/Webstorm-fbf84b?logo=webstorm&logoColor=000&style=flat)  
   
 <div style="display: flex;">
   <img src="https://techstack-generator.vercel.app/nginx-icon.svg" alt="icon" width="65" style="width: 65px; height: 65px; margin-right: 50px; margin-bottom: 0px;" />
