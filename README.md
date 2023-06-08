@@ -12,6 +12,7 @@
 📚 正在学习
 
 ![C++](https://img.shields.io/badge/C++-00599C?logo=cplusplus&logoColor=000&style=flat)
+![OpenCv](https://img.shields.io/badge/OpenCv-5C3EE8?logo=opencv&logoColor=fff&style=flat)  
   
 ⏳ 计划学习
 
@@ -39,7 +40,7 @@
 ![Mysql](https://img.shields.io/badge/Mysql8.0.33-4479A1?logo=mysql&logoColor=fff&style=flat)
   
 ![C](https://img.shields.io/badge/C-A8B9CC?logo=c&logoColor=000&style=flat)
-![CSharp](https://img.shields.io/badge/CSharp-239120?logo=csharp&logoColor=000&style=flat)
+![CSharp](https://img.shields.io/badge/CSharp-239120?logo=csharp&logoColor=fff&style=flat)
 
   
   
