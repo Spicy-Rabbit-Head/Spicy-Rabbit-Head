@@ -18,7 +18,7 @@
 ⏳ 计划学习
 
 ![Go](https://img.shields.io/badge/Go-00ADD8?logo=go&logoColor=fff&style=flat)
-![C Badge](https://img.shields.io/badge/C-A8B9CC?logo=c&logoColor=fff&style=flat)
+![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF?logo=kotlin&logoColor=fff&style=flat)
 
 💡 学习完成 - 正在使用
   
@@ -51,13 +51,14 @@
 ![CSharp](https://img.shields.io/badge/CSharp-239120?logo=csharp&logoColor=fff&style=flat)
 ![Python](https://img.shields.io/badge/Python3.11-fcf84a?logo=python&logoColor=000&style=flat)
 
-  
-  
 🧰 常用的工具 
 
 ![Visual Studio](https://img.shields.io/badge/Visual%20Studio-5C2D91?logo=visualstudio&logoColor=fff&style=flat)
 ![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ%20IDEA-fe2464?logo=intelliJiDEA&logoColor=fff&style=flat)
-![Webstorm](https://img.shields.io/badge/Webstorm-fbf84b?logo=webstorm&logoColor=000&style=flat)  
+![Webstorm](https://img.shields.io/badge/Webstorm-fbf84b?logo=webstorm&logoColor=000&style=flat)
+![PyCharm](https://img.shields.io/badge/PyCharm-21d789?logo=pycharm&logoColor=fff&style=flat)
+![AndroidStudio](https://img.shields.io/badge/AndroidStudio-3DDC84?logo=androidstudio&logoColor=fff&style=flat)
+
   
 <div style="display: flex;">
   <img src="https://techstack-generator.vercel.app/nginx-icon.svg" alt="icon" width="65" style="width: 65px; height: 65px; margin-right: 50px; margin-bottom: 0px;" />
