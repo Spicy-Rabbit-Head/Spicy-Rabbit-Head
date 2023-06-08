@@ -11,7 +11,7 @@
   <!--  skill badge 技能徽章 -->
 📚 正在学习
 
-![HTML5 Badge](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=fff&style=flat)
+![C++](https://img.shields.io/badge/C++-00599C?logo=cplusplus&logoColor=000&style=flat)
   
 ⏳ 计划学习
 
@@ -38,7 +38,9 @@
 ![ApacheRocketMq](https://img.shields.io/badge/RocketMq-D77310?logo=apacherocketmq&logoColor=fff&style=flat)
 ![Mysql](https://img.shields.io/badge/Mysql8.0.33-4479A1?logo=mysql&logoColor=fff&style=flat)
   
-![CSharp](https://img.shields.io/badge/C#-#239120?logo=csharp&logoColor=fff&style=flat)
+![C](https://img.shields.io/badge/C-A8B9CC?logo=c&logoColor=000&style=flat)
+![CSharp](https://img.shields.io/badge/CSharp-239120?logo=csharp&logoColor=000&style=flat)
+
   
   
 🧰 常用的工具 
