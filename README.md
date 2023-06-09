@@ -8,6 +8,7 @@
   <img src="https://cdn.jsdelivr.net/gh/Spicy-Rabbit-Head/Spicy-Rabbit-Head/contrib/github-user-contribution-dark.svg" />
  
  # 👋 你好
+ 你是我的第![Visitor Count](https://profile-counter.glitch.me/Spicy-Rabbit-Head/count.svg)位访客
   
  ### 关于我
  ```
@@ -83,5 +84,11 @@
   <img src="https://techstack-generator.vercel.app/java-icon.svg" alt="icon" width="65" style="width: 65px; height: 65px; margin-right: 50px; margin-bottom: 0px;" />
   <img src="https://techstack-generator.vercel.app/mysql-icon.svg" alt="icon" width="65" style="width: 65px; height: 65px; margin-right: 0px; margin-bottom: 0px;" />
 </div>
+
+# 我的 GitHub  
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Spicy-Rabbit-Head&layout=compact&locale=cn)](https://github.com/anuraghazra/github-readme-stats)
+  
+  
+  
   
 </div>
