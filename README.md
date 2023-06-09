@@ -6,9 +6,18 @@
   <img src="https://cdn.jsdelivr.net/gh/Spicy-Rabbit-Head/Spicy-Rabbit-Head/img/type.gif" /><br>
   <!-- 贪吃蛇代码贡献图 -->
   <img src="https://cdn.jsdelivr.net/gh/Spicy-Rabbit-Head/Spicy-Rabbit-Head/contrib/github-user-contribution-dark.svg" />
-
+ 
+ # 👋 你好
   
-  <!--  skill badge 技能徽章 -->
+ ### 关于我
+ ```
+  大家好，我是赵子奎。
+  热爱编程、读书。
+  热爱计算机科学，期望成为一名优秀的独立开发者。
+  😊
+ ```
+  
+<!--  skill badge 技能徽章 -->
 📚 正在学习
 
 ![C++](https://img.shields.io/badge/C++-00599C?logo=cplusplus&logoColor=000&style=flat)
