@@ -31,12 +31,12 @@
 ![Bun](https://img.shields.io/badge/Bun-fbf0df?logo=bun&logoColor=000&style=flat)
 ![ElasticSearch](https://img.shields.io/badge/Elastic%20Search-005571?logo=elasticsearch&logoColor=fff&style=flat)
 ![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=000&style=flat)
- 
+![Tauri](https://img.shields.io/badge/Tauri-FFC131?logo=tauri&logoColor=000&style=flat)
+
 ⏳ 计划学习
 
 ![Go](https://img.shields.io/badge/Go-00ADD8?logo=go&logoColor=fff&style=flat)
 ![Threedotjs](https://img.shields.io/badge/Threedot.js-0c2d20?logo=threedotjs&logoColor=fff&style=flat)
-![Tauri](https://img.shields.io/badge/Tauri-FFC131?logo=tauri&logoColor=000&style=flat)
 ![Webassembly](https://img.shields.io/badge/Webassembly-654FF0?logo=webassembly&logoColor=fff&style=flat)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=fff&style=flat)
 
