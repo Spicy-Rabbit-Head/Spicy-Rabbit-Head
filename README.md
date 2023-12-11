@@ -40,6 +40,7 @@
 ![Go](https://img.shields.io/badge/Go-00ADD8?logo=go&logoColor=fff&style=flat)
 ![Webassembly](https://img.shields.io/badge/Webassembly-654FF0?logo=webassembly&logoColor=fff&style=flat)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=fff&style=flat)
+![Xamarin](https://img.shields.io/badge/xamarin-3498DB?logo=xamarin&logoColor=fff&style=flat)
 
 💡 学习完成 - 正在使用
 
