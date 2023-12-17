@@ -31,7 +31,6 @@
 ![ElasticSearch](https://img.shields.io/badge/Elastic%20Search-005571?logo=elasticsearch&logoColor=fff&style=flat)
 ![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=000&style=flat)
 ![Tauri](https://img.shields.io/badge/Tauri-FFC131?logo=tauri&logoColor=000&style=flat)
-![Xaml](https://img.shields.io/badge/xaml-0C54C2?logo=xaml&logoColor=fff&style=flat)
 ![OpenCv](https://img.shields.io/badge/OpenCv-5C3EE8?logo=opencv&logoColor=fff&style=flat)
 
 ⏳ 计划学习
@@ -71,6 +70,7 @@
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=fff&style=flat)
 ![UnoCss](https://img.shields.io/badge/UnoCss-333333?logo=unocss&logoColor=fff&style=flat) 
 ![Threedotjs](https://img.shields.io/badge/Threedot.js-0c2d20?logo=threedotjs&logoColor=fff&style=flat)
+![Xaml](https://img.shields.io/badge/xaml-0C54C2?logo=xaml&logoColor=fff&style=flat)
 
 🧰 常用的工具
 
