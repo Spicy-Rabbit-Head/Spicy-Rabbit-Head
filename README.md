@@ -81,6 +81,7 @@
 ![GoLand](https://img.shields.io/badge/GoLand-1BDBDB?logo=goland&logoColor=fff&style=flat)
 ![AndroidStudio](https://img.shields.io/badge/Android%20Studio-3DDC84?logo=androidstudio&logoColor=fff&style=flat)
 ![DataGrip](https://img.shields.io/badge/DataGrip-2AB1AC?logo=datagrip&logoColor=fff&style=flat)
+![Clion](https://img.shields.io/badge/Clion-2AB1AC?logo=clion&logoColor=fff&style=flat)
 ![StackBlitz](https://img.shields.io/badge/StackBlitz-1269D3?logo=stackblitz&logoColor=fff&style=flat)
 
 
