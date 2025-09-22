@@ -1,0 +1,15 @@
+{
+  "name": "collapse-transition",
+  "type": "registry:component",
+  "description": "无渲染过渡组件，通过动态测量高度与 max-height 动画，为面板展开/收起提供平滑、可打断、性能友好的折叠动效。",
+  "files": [
+    {
+      "target": "components/collapse-transition/index.ts",
+      "content": "import CollapseTransition from '../collapse/collapse-transition'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { CollapseTransition }\nexport { collapseTransitionProps } from '../collapse/props'\n\nexport type CollapseTransitionExposed = ComponentPublicInstance & InstanceType<typeof CollapseTransition>\n\nexport type { CollapseTransitionProps, CollapseTransitionCProps } from '../collapse/props'\n"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": ["other"],
+  "meta": { "isReferenceOnly": true }
+}
