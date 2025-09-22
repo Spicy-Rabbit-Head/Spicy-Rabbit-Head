@@ -1,0 +1,19 @@
+{
+  "name": "portal",
+  "type": "registry:component",
+  "description": "传送门组件，用于将内容渲染到DOM树的其他位置",
+  "files": [
+    {
+      "target": "components/portal/index.ts",
+      "content": "import Portal from './portal.vue'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { Portal }\nexport type PortalExposed = ComponentPublicInstance & InstanceType<typeof Portal>\n"
+    },
+    {
+      "target": "components/portal/portal.vue",
+      "content": "<script setup lang=\"ts\">\nimport { computed, nextTick, onMounted, ref } from 'vue'\n\ndefineOptions({ name: 'Portal' ,\n  description:'传送门组件，用于将内容渲染到DOM树的其他位置',\n  categories: ['other']})\n\nconst props = defineProps({\n  to: {\n    type: String,\n    default: ''\n  }\n})\n\nconst testMode = import.meta.env.MODE === 'test'\nconst isMounted = ref(false)\nconst disabled = computed(() => !isMounted.value || !props.to)\n\nonMounted(() => {\n  nextTick(() => {\n    isMounted.value = true\n  })\n})\n</script>\n\n<template>\n  <Teleport v-if=\"testMode ? !disabled : isMounted\" :to=\"disabled ? undefined : to || undefined\" :disabled=\"disabled\">\n    <slot></slot>\n  </Teleport>\n  <slot v-else></slot>\n</template>\n"
+    }
+  ],
+  "dependencies": ["vue"],
+  "registryDependencies": ["portal.scss"],
+  "categories": ["other"],
+  "meta": { "isReferenceOnly": false }
+}

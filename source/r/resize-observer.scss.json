@@ -1,0 +1,5 @@
+{
+  "name": "resize-observer.scss",
+  "type": "registry:style",
+  "files": [{ "target": "style/resize-observer.scss", "content": "" }]
+}

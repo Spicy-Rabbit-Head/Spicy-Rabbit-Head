@@ -1,0 +1,23 @@
+{
+  "name": "renderer",
+  "type": "registry:component",
+  "description": "当你想要在 <template> 里使用渲染函数，你可能需要它。",
+  "files": [
+    {
+      "target": "components/renderer/index.ts",
+      "content": "import Renderer from './renderer'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { Renderer }\nexport { rendererProps } from './props'\n\nexport type RendererExposed = ComponentPublicInstance & InstanceType<typeof Renderer>\nexport type { RendererProps } from './props'\n"
+    },
+    {
+      "target": "components/renderer/props.ts",
+      "content": "import { wrapProps } from '@pocui/config'\n\nimport type { ExtractPropTypes, PropType } from 'vue'\n\nexport const rendererProps = wrapProps({\n  renderer: {\n    type: Function,\n    default: null\n  },\n  data: {\n    type: Object as PropType<Record<string, any>>,\n    default: undefined\n  }\n})\n\nexport type RendererProps = ExtractPropTypes<typeof rendererProps>\n"
+    },
+    {
+      "target": "components/renderer/renderer.ts",
+      "content": "import { SlotsType, defineComponent, renderSlot } from 'vue'\n\nimport { rendererProps } from './props'\n\nexport default defineComponent({\n  name: 'Renderer',\n  description:'当你想要在 <template> 里使用渲染函数，你可能需要它。',\n  categories: ['other'],\n  props: rendererProps,\n  slots: Object as SlotsType<{\n    default(props: Record<string, any>): any\n  }>,\n  setup(props, { slots }) {\n    return () => {\n      if (typeof props.renderer !== 'function') {\n        return renderSlot(slots, 'default', props.data)\n      }\n\n      return props.renderer(props.data)\n    }\n  }\n})\n"
+    }
+  ],
+  "dependencies": ["@pocui/config", "vue"],
+  "registryDependencies": ["renderer.scss"],
+  "categories": ["other"],
+  "meta": { "isReferenceOnly": false }
+}

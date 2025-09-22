@@ -1,0 +1,10 @@
+{
+  "name": "result.scss",
+  "type": "registry:style",
+  "files": [
+    {
+      "target": "style/result.scss",
+      "content": "@use 'sass:map';\r\n@use './shared' as *;\r\n@use './design' as *;\r\n\r\n$result: () !default;\r\n$result: map.merge(\r\n  (\r\n    title-font-size: 20px,\r\n    icon-font-size: 54px,\r\n    title-margin-top: 16px,\r\n    description-font-size: 14px,\r\n    description-margin-top: 4px,\r\n    extra-margin-top: 24px\r\n  ),\r\n  $result\r\n);\r\n\r\n.#{$namespace}-result {\r\n  &-vars {\r\n    @include define-preset-values('result', $result);\r\n  }\r\n\r\n  @mixin define-result-style($style-map) {\r\n    @include define-preset-style('result', $style-map);\r\n  }\r\n\r\n  @include basis {\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    text-align: center;\r\n  }\r\n\r\n  &--small {\r\n    @include define-preset-values(\r\n      'result',\r\n      (\r\n        icon-font-size: 36px,\r\n        title-font-size: 16px,\r\n        description-font-size: 12px\r\n      )\r\n    );\r\n  }\r\n\r\n  &--large {\r\n    @include define-preset-values(\r\n      'result',\r\n      (\r\n        icon-font-size: 84px,\r\n        title-font-size: 28px,\r\n        description-font-size: 16px\r\n      )\r\n    );\r\n  }\r\n\r\n  &__icon {\r\n    display: flex;\r\n    align-items: center;\r\n    font-size: value('result-icon-font-size');\r\n    color: value('result-icon-color');\r\n  }\r\n\r\n  &__title {\r\n    margin-top: value('result-title-margin-top');\r\n    font-size: value('result-title-font-size');\r\n  }\r\n\r\n  &__description {\r\n    margin-top: value('result-description-margin-top');\r\n    font-size: value('result-description-font-size');\r\n  }\r\n\r\n  &__extra {\r\n    margin-top: value('result-extra-margin-top');\r\n  }\r\n\r\n  @each $type in $types {\r\n    &--#{$type} {\r\n      @include define-result-style(\r\n        (\r\n          bg-color: 'color' $type 'opacity-8',\r\n          icon-color: 'color' $type 'dark-2'\r\n        )\r\n      );\r\n    }\r\n  }\r\n}\r\n"
+    }
+  ]
+}

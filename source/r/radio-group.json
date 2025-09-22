@@ -1,0 +1,15 @@
+{
+  "name": "radio-group",
+  "type": "registry:component",
+  "description": "单选框组组件，用于管理一组单选框的选择状态",
+  "files": [
+    {
+      "target": "components/radio-group/index.ts",
+      "content": "import RadioGroup from '../radio/radio-group.vue'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { RadioGroup }\nexport { radioGroupProps } from '../radio/props'\n\nexport type RadioGroupExposed = ComponentPublicInstance & InstanceType<typeof RadioGroup>\n\nexport type { RadioGroupProps, RadioGroupCProps } from '../radio/props'\n"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": ["form"],
+  "meta": { "isReferenceOnly": true }
+}

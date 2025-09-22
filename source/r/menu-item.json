@@ -1,0 +1,15 @@
+{
+  "name": "menu-item",
+  "type": "registry:component",
+  "description": "单条菜单节点，支持图标、选中、禁用、跳转与点击事件，是用户执行导航或操作的最小单元。",
+  "files": [
+    {
+      "target": "components/menu-item/index.ts",
+      "content": "export { default as MenuItem } from '../menu/menu-item'\nexport { menuItemProps } from '../menu/props'\n\nexport type { MenuItemProps, MenuItemCProps } from '../menu/props'\nexport type { MenuItemExposed } from '../menu/symbol'\n"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": ["navigation"],
+  "meta": { "isReferenceOnly": true }
+}

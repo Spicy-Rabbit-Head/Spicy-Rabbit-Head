@@ -1,0 +1,10 @@
+{
+  "name": "popper.scss",
+  "type": "registry:style",
+  "files": [
+    {
+      "target": "style/popper.scss",
+      "content": "@use 'sass:map';\r\n\r\n@use './shared' as *;\r\n@use './design' as *;\r\n\r\n.#{$namespace}-popper {\r\n  @include basis {\r\n    position: absolute;\r\n    z-index: value('z-index-popper');\r\n    display: flex;\r\n    padding: 5px 0;\r\n  }\r\n\r\n  @include inherit-color;\r\n}\r\n"
+    }
+  ]
+}

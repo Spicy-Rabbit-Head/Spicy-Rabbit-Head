@@ -1,0 +1,15 @@
+{
+  "name": "skeleton-group",
+  "type": "registry:component",
+  "description": "骨架屏组组件，用于批量管理和控制多个骨架屏的加载状态",
+  "files": [
+    {
+      "target": "components/skeleton-group/index.ts",
+      "content": "import SkeletonGroup from '../skeleton/skeleton-group'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { SkeletonGroup }\nexport { skeletonGroupProps } from '../skeleton/props'\n\nexport type SkeletonGroupExposed = ComponentPublicInstance & InstanceType<typeof SkeletonGroup>\n\nexport type { SkeletonGroupProps, SkeletonGroupCProps } from '../skeleton/props'\n"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": ["display"],
+  "meta": { "isReferenceOnly": true }
+}

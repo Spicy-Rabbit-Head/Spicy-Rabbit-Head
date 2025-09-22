@@ -1,0 +1,27 @@
+{
+  "name": "result",
+  "type": "registry:component",
+  "description": "通常用于为用户反馈操作结果或者异常。",
+  "files": [
+    {
+      "target": "components/result/index.ts",
+      "content": "import Result from './result.vue'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { Result }\nexport { resultProps } from './props'\n\nexport type ResultExposed = ComponentPublicInstance & InstanceType<typeof Result>\n\nexport type { ResultProps, ResultCProps } from './props'\n"
+    },
+    {
+      "target": "components/result/props.ts",
+      "content": "import { buildProps, iconProp, sizeProp } from '@pocui/config'\n\nimport type { ConfigurableProps } from '@pocui/config'\n\nimport type { ExtractPropTypes, PropType } from 'vue'\nimport type { ResultType } from './symbol'\n\nexport const resultProps = buildProps({\n  title: String,\n  size: sizeProp,\n  type: String as PropType<ResultType>,\n  icon: iconProp,\n  iconColor: String,\n  description: String\n})\n\nexport type ResultProps = ExtractPropTypes<typeof resultProps>\nexport type ResultCProps = ConfigurableProps<ExtractPropTypes<typeof resultProps>>\n"
+    },
+    {
+      "target": "components/result/result.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Icon } from '@/components/icon'\n\nimport { computed } from 'vue'\n\nimport { createIconProp, createSizeProp, useIcons, useNameHelper, useProps } from '@pocui/config'\n\nimport { resultProps } from './props'\nimport { resultTypes } from './symbol'\n\ndefineOptions({ name: 'Result',\n  description:'通常用于为用户反馈操作结果或者异常。',\n  categories: ['feedback'] })\n\nconst _props = defineProps(resultProps)\nconst props = useProps('result', _props, {\n  title: '',\n  size: createSizeProp(),\n  type: {\n    default: 'primary',\n    validator: value => resultTypes.includes(value)\n  },\n  icon: createIconProp(),\n  iconColor: '',\n  description: ''\n})\nconst slots = defineSlots<{\n  icon(): any,\n  title(): any,\n  description(): any,\n  extra?(): any\n}>()\nconst nh = useNameHelper('result')\nconst icons = useIcons()\n\nconst predefinedIcons = computed(() => ({\n  primary: icons.value.info,\n  info: icons.value.info,\n  success: icons.value.success,\n  warning: icons.value.warning,\n  error: icons.value.error\n}))\n\nconst iconComp = computed(() => {\n  return props.icon ? { icon: props.icon } : predefinedIcons.value[props.type]\n})\nconst hasTitle = computed(() => !!slots.title || props.title)\nconst hasIcon = computed(() => !!slots.icon || props.type || props.icon)\nconst hasDescription = computed(() => !!slots.description || props.description)\nconst className = computed(() => {\n  return {\n    [nh.b()]: true,\n    [nh.bs('vars')]: true,\n    [nh.in()]: props.inherit,\n    [nh.bm(props.type)]: props.type,\n    [nh.bm(props.size)]: props.size !== 'default'\n  }\n})\nconst style = computed(() => {\n  if (props.iconColor) {\n    return nh.cvm({\n      'icon-color': props.iconColor\n    })\n  }\n\n  return {}\n})\n</script>\n\n<template>\n  <div :class=\"className\" :style=\"style\">\n    <div v-if=\"hasIcon\" :class=\"nh.be('icon')\">\n      <slot name=\"icon\">\n        <Icon v-bind=\"iconComp\" :class=\"nh.be('icon')\" :style=\"{ color: props.iconColor }\"></Icon>\n      </slot>\n    </div>\n    <div v-if=\"hasTitle\" :class=\"nh.be('title')\">\n      <slot name=\"title\">\n        {{ props.title }}\n      </slot>\n    </div>\n    <div v-if=\"hasDescription\" :class=\"nh.be('description')\">\n      <slot name=\"description\">\n        {{ props.description }}\n      </slot>\n    </div>\n    <div v-if=\"slots.extra\" :class=\"nh.be('extra')\">\n      <slot name=\"extra\"></slot>\n    </div>\n  </div>\n</template>\n"
+    },
+    {
+      "target": "components/result/symbol.ts",
+      "content": "export type ResultType = 'primary' | 'info' | 'success' | 'warning' | 'error'\n\nexport const resultTypes = Object.freeze<ResultType[]>([\n  'primary',\n  'info',\n  'success',\n  'warning',\n  'error'\n])\n"
+    }
+  ],
+  "dependencies": ["vue", "@pocui/config"],
+  "registryDependencies": ["result.scss", "icon"],
+  "categories": ["feedback"],
+  "meta": { "isReferenceOnly": false }
+}

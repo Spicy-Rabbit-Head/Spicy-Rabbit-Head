@@ -1,0 +1,10 @@
+{
+  "name": "popup.scss",
+  "type": "registry:style",
+  "files": [
+    {
+      "target": "style/popup.scss",
+      "content": "@use './shared' as *;\r\n@use './design' as *;\r\n\r\n.#{$namespace}-popup {\r\n  // position: fixed;\r\n  // z-index: value('z-index-popup');\r\n  width: 0;\r\n  height: 0;\r\n  padding: 0;\r\n  margin: 0;\r\n  font-size: value('font-size-base');\r\n\r\n  &__item {\r\n    position: fixed;\r\n    z-index: value('z-index-popup');\r\n    display: flex;\r\n    // stylelint-disable-next-line declaration-property-value-disallowed-list\r\n    transition: all value('transition-base');\r\n\r\n    &-inner {\r\n      position: relative;\r\n    }\r\n  }\r\n\r\n  $item: #{&}__item;\r\n\r\n  &--top-right,\r\n  &--bottom-right {\r\n    #{$item} {\r\n      right: 24px;\r\n    }\r\n  }\r\n\r\n  &--top-left,\r\n  &--bottom-left {\r\n    #{$item} {\r\n      left: 24px;\r\n    }\r\n  }\r\n\r\n  &--top-center,\r\n  &--bottom-center {\r\n    #{$item} {\r\n      left: 50%;\r\n      transform: translateX(-50%);\r\n    }\r\n  }\r\n}\r\n"
+    }
+  ]
+}

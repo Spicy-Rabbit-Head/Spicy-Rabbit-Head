@@ -1,0 +1,10 @@
+{
+  "name": "overflow.scss",
+  "type": "registry:style",
+  "files": [
+    {
+      "target": "style/overflow.scss",
+      "content": "@use 'sass:map';\r\n\r\n@use './shared' as *;\r\n@use './design' as *;\r\n\r\n$overflow: () !default;\r\n$overflow: map.merge((), $overflow);\r\n\r\n.#{$namespace}-overflow {\r\n  &-vars {\r\n    @include define-preset-values('overflow', $overflow);\r\n  }\r\n\r\n  @include basis {\r\n    display: flex;\r\n    width: 100%;\r\n  }\r\n\r\n  @include inherit-color;\r\n\r\n  &--manual {\r\n    flex-wrap: wrap;\r\n  }\r\n}\r\n"
+    }
+  ]
+}

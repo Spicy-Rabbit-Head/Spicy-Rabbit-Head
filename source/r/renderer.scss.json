@@ -1,0 +1,5 @@
+{
+  "name": "renderer.scss",
+  "type": "registry:style",
+  "files": [{ "target": "style/renderer.scss", "content": "" }]
+}

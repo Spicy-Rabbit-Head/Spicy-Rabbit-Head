@@ -1,0 +1,5 @@
+{
+  "name": "portal.scss",
+  "type": "registry:style",
+  "files": [{ "target": "style/portal.scss", "content": "" }]
+}

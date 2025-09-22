@@ -1,0 +1,23 @@
+{
+  "name": "popper",
+  "type": "registry:component",
+  "description": "弹出层组件，用于定位和显示浮动内容，如提示框、下拉菜单等。",
+  "files": [
+    {
+      "target": "components/popper/index.ts",
+      "content": "import Popper from './popper.vue'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { Popper }\nexport { popperProps } from './props'\n\nexport type PopperExposed = ComponentPublicInstance & InstanceType<typeof Popper>\n\nexport type { PopperProps, PopperCProps } from './props'\n"
+    },
+    {
+      "target": "components/popper/popper.vue",
+      "content": "<script lang=\"ts\" setup>\nimport { Portal } from '@/components/portal'\n\nimport { ref, watch } from 'vue'\n\nimport { emitEvent, useNameHelper, useProps, useZIndex } from '@pocui/config'\n\nimport { popperProps } from './props'\n\ndefineOptions({\n  name: 'Popper',\n  description:'弹出层组件，用于定位和显示浮动内容，如提示框、下拉菜单等。',\n  categories: ['other'],\n  components: { Portal },\n  inheritAttrs: false\n})\n\nconst _props = defineProps(popperProps)\nconst nh = useNameHelper('popper')\nconst props = useProps('collapseTransition', _props, {\n  visible: false,\n  alive: false,\n  to: '',\n  transition: () => nh.ns('drop'),\n  appear: false\n})\nconst getIndex = useZIndex()\n\nconst zIndex = ref(10)\nconst wrapper = ref<HTMLElement>()\n\nwatch(\n  () => props.visible,\n  value => {\n    if (props.to && value) {\n      zIndex.value = getIndex()\n    }\n  },\n  { immediate: true }\n)\n\nfunction emitHookEvent(name: 'be' | 'e' | 'ae' | 'ec' | 'bl' | 'l' | 'al' | 'lc', el: Element) {\n  switch (name) {\n    case 'be':\n      emitEvent(props.onBeforeEnter, el)\n      break\n    case 'e':\n      emitEvent(props.onEnter, el)\n      break\n    case 'ae':\n      emitEvent(props.onAfterEnter, el)\n      break\n    case 'ec':\n      emitEvent(props.onEnterCancelled, el)\n      break\n    case 'bl':\n      emitEvent(props.onBeforeLeave, el)\n      break\n    case 'l':\n      emitEvent(props.onLeave, el)\n      break\n    case 'al':\n      emitEvent(props.onAfterLeave, el)\n      break\n    case 'lc':\n      emitEvent(props.onLeaveCancelled, el)\n      break\n  }\n}\n\ndefineExpose({\n  wrapper\n})\n</script>\n\n<template>\n  <Portal :to=\"props.to\">\n    <Transition\n      :name=\"props.transition\"\n      :appear=\"props.appear\"\n      @before-enter=\"emitHookEvent('be', $event)\"\n      @enter=\"emitHookEvent('e', $event)\"\n      @after-enter=\"emitHookEvent('ae', $event)\"\n      @enter-cancelled=\"emitHookEvent('ec', $event)\"\n      @before-leave=\"emitHookEvent('bl', $event)\"\n      @leave=\"emitHookEvent('l', $event)\"\n      @after-leave=\"emitHookEvent('al', $event)\"\n      @leave-cancelled=\"emitHookEvent('lc', $event)\"\n    >\n      <div\n        v-if=\"props.alive || props.visible\"\n        v-show=\"!props.alive || props.visible\"\n        v-bind=\"$attrs\"\n        ref=\"wrapper\"\n        :class=\"[nh.b(), props.to !== 'body' && nh.inc()]\"\n        :style=\"{ zIndex: props.to && props.visible ? zIndex : undefined }\"\n      >\n        <slot></slot>\n      </div>\n    </Transition>\n  </Portal>\n</template>\n"
+    },
+    {
+      "target": "components/popper/props.ts",
+      "content": "import { booleanProp, buildProps, eventProp } from '@pocui/config'\n\nimport type { ConfigurableProps } from '@pocui/config'\n\nimport type { ExtractPropTypes } from 'vue'\n\nexport const popperProps = buildProps({\n  visible: booleanProp,\n  alive: booleanProp,\n  to: String,\n  transition: String,\n  appear: booleanProp,\n  onBeforeEnter: eventProp<(el: Element) => void>(),\n  onEnter: eventProp<(el: Element) => void>(),\n  onAfterEnter: eventProp<(el: Element) => void>(),\n  onEnterCancelled: eventProp<(el: Element) => void>(),\n  onBeforeLeave: eventProp<(el: Element) => void>(),\n  onLeave: eventProp<(el: Element) => void>(),\n  onAfterLeave: eventProp<(el: Element) => void>(),\n  onLeaveCancelled: eventProp<(el: Element) => void>()\n})\n\nexport type PopperProps = ExtractPropTypes<typeof popperProps>\nexport type PopperCProps = ConfigurableProps<PopperProps>\n"
+    }
+  ],
+  "dependencies": ["vue", "@pocui/config"],
+  "registryDependencies": ["popper.scss", "portal"],
+  "categories": ["other"],
+  "meta": { "isReferenceOnly": false }
+}

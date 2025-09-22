@@ -1,0 +1,10 @@
+{
+  "name": "space.scss",
+  "type": "registry:style",
+  "files": [
+    {
+      "target": "style/space.scss",
+      "content": "@use 'sass:map';\r\n\r\n@use './shared' as *;\r\n@use './design' as *;\r\n\r\n$space: () !default;\r\n$space: map.merge(\r\n  (\r\n    v-gap: 8px,\r\n    h-gap: 12px\r\n  ),\r\n  $space\r\n);\r\n\r\n.#{$namespace}-space {\r\n  &-vars {\r\n    @include define-preset-values('space', $space);\r\n  }\r\n\r\n  @include basis {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    gap: value('space-v-gap') value('space-h-gap');\r\n  }\r\n\r\n  @include inherit-color;\r\n\r\n  &--inline {\r\n    display: inline-flex;\r\n  }\r\n\r\n  &--vertical {\r\n    flex-direction: column;\r\n  }\r\n\r\n  &--no-wrap {\r\n    flex-wrap: nowrap;\r\n  }\r\n\r\n  &--no-gap {\r\n    gap: unset;\r\n  }\r\n\r\n  &--small {\r\n    @include define-preset-values(\r\n      'space',\r\n      (\r\n        v-gap: 4px,\r\n        h-gap: 8px\r\n      )\r\n    );\r\n  }\r\n\r\n  &--large {\r\n    @include define-preset-values(\r\n      'space',\r\n      (\r\n        v-gap: 12px,\r\n        h-gap: 16px\r\n      )\r\n    );\r\n  }\r\n\r\n  &__item {\r\n    display: flex;\r\n    max-width: 100%;\r\n  }\r\n}\r\n"
+    }
+  ]
+}

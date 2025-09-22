@@ -1,0 +1,15 @@
+{
+  "name": "menu-group",
+  "type": "registry:component",
+  "description": "可折叠分组，提供标题栏与内部菜单项的展开/收起控制，实现二级及以上层级收纳。",
+  "files": [
+    {
+      "target": "components/menu-group/index.ts",
+      "content": "import MenuGroup from '../menu/menu-group'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { MenuGroup }\nexport { menuGroupProps } from '../menu/props'\n\nexport type MenuGroupExposed = ComponentPublicInstance & InstanceType<typeof MenuGroup>\n\nexport type { MenuGroupProps } from '../menu/props'\n"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": ["navigation"],
+  "meta": { "isReferenceOnly": true }
+}

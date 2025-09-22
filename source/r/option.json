@@ -1,0 +1,31 @@
+{
+  "name": "option",
+  "type": "registry:component",
+  "description": "选项组件，用于在选择器、下拉菜单等组件中提供可选择的选项。",
+  "files": [
+    {
+      "target": "components/option/index.ts",
+      "content": "import Option from './option.vue'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { Option }\nexport { optionProps } from './props'\n\nexport type OptionExposed = ComponentPublicInstance & InstanceType<typeof Option>\n\nexport type { OptionProps } from './props'\nexport type { OptionKeyConfig, RawOption, OptionState } from './symbol'\n"
+    },
+    {
+      "target": "components/option/option-group.vue",
+      "content": "<script setup lang=\"ts\">\nimport { useNameHelper } from '@pocui/config'\nimport { optionGroupProps } from './props'\n\ndefineOptions({ name: 'OptionGroup',\n  description:'选项组组件，用于将相关的选项进行分组显示。',\n  categories: ['form'] })\n\ndefineProps(optionGroupProps)\n\nconst nh = useNameHelper('option-group')\n</script>\n\n<template>\n  <li\n    :class=\"{\n      [nh.b()]: true,\n      [nh.ns('option-vars')]: true,\n      [nh.bm('divided')]: divided\n    }\"\n  >\n    <div :class=\"nh.be('label')\">\n      <slot name=\"label\">\n        {{ label }}\n      </slot>\n    </div>\n    <ul :class=\"nh.be('list')\">\n      <slot></slot>\n    </ul>\n  </li>\n</template>\n"
+    },
+    {
+      "target": "components/option/option.vue",
+      "content": "<script lang=\"ts\">\nimport { computed, defineComponent } from 'vue'\n\nimport { emitEvent, useNameHelper } from '@pocui/config'\nimport { optionProps } from './props'\n\nexport default defineComponent({\n  name: 'Option',\n  description:'选项组件，用于在选择器、下拉菜单等组件中提供可选择的选项。',\n  categories: ['form'],\n  props: optionProps,\n  emits: [],\n  setup(props) {\n    const nh = useNameHelper('option')\n    const className = computed(() => {\n      return {\n        [nh.b()]: true,\n        [nh.bs('vars')]: true,\n        [nh.bm('disabled')]: props.disabled,\n        [nh.bm('selected')]: !props.disabled && props.selected,\n        [nh.bm('divided')]: props.divided,\n        [nh.bm('hitting')]: props.hitting,\n        [nh.bm('no-hover')]: props.noHover\n      }\n    })\n\n    function handleSelect() {\n      if (props.disabled) return\n\n      emitEvent(props.onSelect!)\n    }\n\n    return {\n      className,\n      handleSelect\n    }\n  }\n})\n</script>\n\n<template>\n  <li\n    ref=\"wrapper\"\n    :class=\"className\"\n    :title=\"title || undefined\"\n    role=\"option\"\n    :aria-disabled=\"disabled ? 'true' : undefined\"\n    :aria-selected=\"selected\"\n    @click=\"handleSelect\"\n  >\n    <slot>{{ label || value }}</slot>\n  </li>\n</template>\n"
+    },
+    {
+      "target": "components/option/props.ts",
+      "content": "import { eventProp, valueProp, wrapProps } from '@pocui/config'\n\nimport type { ExtractPropTypes } from 'vue'\n\nexport const optionProps = wrapProps({\n  value: valueProp,\n  label: {\n    type: String,\n    default: ''\n  },\n  disabled: {\n    type: Boolean,\n    default: false\n  },\n  divided: {\n    type: Boolean,\n    default: false\n  },\n  title: {\n    type: String,\n    default: ''\n  },\n  hitting: {\n    type: Boolean,\n    default: false\n  },\n  noHover: {\n    type: Boolean,\n    default: false\n  },\n  selected: {\n    type: Boolean,\n    default: false\n  },\n  onSelect: eventProp()\n})\n\nexport type OptionProps = ExtractPropTypes<typeof optionProps>\n\nexport const optionGroupProps = wrapProps({\n  label: {\n    type: String,\n    default: ''\n  },\n  divided: {\n    type: Boolean,\n    default: false\n  }\n})\n\nexport type OptionGroupProps = ExtractPropTypes<typeof optionGroupProps>\n"
+    },
+    {
+      "target": "components/option/symbol.ts",
+      "content": "export interface OptionKeyConfig {\n  value?: string,\n  label?: string,\n  disabled?: string,\n  divided?: string,\n  title?: string\n}\n\nexport type RawOption = string | Record<string, any>\n\nexport interface OptionState {\n  value: string | number,\n  label: string,\n  disabled: boolean,\n  divided: boolean,\n  title: string,\n  hidden: boolean,\n  hitting: boolean,\n  data: RawOption\n}\n"
+    }
+  ],
+  "dependencies": ["vue", "@pocui/config"],
+  "registryDependencies": ["option.scss"],
+  "categories": ["form"],
+  "meta": { "isReferenceOnly": false }
+}

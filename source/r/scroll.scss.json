@@ -1,0 +1,10 @@
+{
+  "name": "scroll.scss",
+  "type": "registry:style",
+  "files": [
+    {
+      "target": "style/scroll.scss",
+      "content": "@use 'sass:map';\r\n\r\n@use './shared' as *;\r\n@use './design' as *;\r\n\r\n$scroll: () !default;\r\n$scroll: map.merge(\r\n  (\r\n    move-duration: 180ms,\r\n    move-timing: cubic-bezier(0.165, 0.84, 0.44, 1)\r\n  ),\r\n  $scroll\r\n);\r\n\r\n.#{$namespace}-scroll {\r\n  &-vars {\r\n    @include define-preset-values('scroll', $scroll);\r\n  }\r\n\r\n  @include basis {\r\n    position: relative;\r\n    overflow: hidden;\r\n  }\r\n\r\n  @include inherit-color;\r\n\r\n  &__wrapper {\r\n    position: relative;\r\n    vertical-align: top;\r\n    transition-timing-function: value('scroll-move-timing');\r\n    transition-duration: value('scroll-move-duration');\r\n    transition-property: transform;\r\n    will-change: transform;\r\n\r\n    @include clear-both;\r\n  }\r\n\r\n  $wrap: #{&}__wrapper;\r\n\r\n  &--scrolling,\r\n  &--using-bar,\r\n  &--no-ready,\r\n  &--no-transition {\r\n    & > #{$wrap} {\r\n      transition-duration: 0ms;\r\n    }\r\n  }\r\n\r\n  &--no-ready {\r\n    & > #{$wrap} {\r\n      display: inline-block;\r\n    }\r\n  }\r\n\r\n  // 与使用 js 找到所有子元素再添加样式相比效率如何 (不太好测试) ?\r\n  &--scrolling,\r\n  &--using-bar {\r\n    & > #{$wrap} > * {\r\n      pointer-events: none;\r\n    }\r\n  }\r\n\r\n  &--horizontal,\r\n  &--both {\r\n    & > #{$wrap} {\r\n      display: inline-block;\r\n    }\r\n  }\r\n\r\n  &__extra {\r\n    position: absolute;\r\n    inset-inline-start: 0;\r\n    top: 0;\r\n    width: 100%;\r\n    height: 100%;\r\n\r\n    & > * {\r\n      position: relative;\r\n      z-index: 10;\r\n    }\r\n  }\r\n\r\n  &--both > &__bar--horizontal {\r\n    width: calc(100% - value('scrollbar-width') + 1px);\r\n  }\r\n\r\n  &--both > &__bar--vertical {\r\n    height: calc(100% - value('scrollbar-width') + 1px);\r\n  }\r\n}\r\n"
+    }
+  ]
+}

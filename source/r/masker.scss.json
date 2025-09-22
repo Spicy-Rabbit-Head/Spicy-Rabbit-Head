@@ -1,0 +1,10 @@
+{
+  "name": "masker.scss",
+  "type": "registry:style",
+  "files": [
+    {
+      "target": "style/masker.scss",
+      "content": "@use 'sass:map';\r\n\r\n@use './shared' as *;\r\n@use './design' as *;\r\n\r\n$masker: () !default;\r\n$masker: map.merge(\r\n  (\r\n    z-index: value('z-index-masker'),\r\n    bg-color: value('color-black'),\r\n    opacity: 45%\r\n  ),\r\n  $masker\r\n);\r\n\r\n.#{$namespace}-masker {\r\n  &-vars {\r\n    @include define-preset-values('masker', $masker);\r\n  }\r\n\r\n  @include basis {\r\n    z-index: value('masker-z-index');\r\n  }\r\n\r\n  @include fixed;\r\n  @include inherit-color;\r\n\r\n  &--inner {\r\n    position: absolute;\r\n    overflow: hidden;\r\n  }\r\n\r\n  &__mask {\r\n    @include fixed {\r\n      color: value('masker-bg-color');\r\n      transform: translateZ(0);\r\n    }\r\n\r\n    &-inner {\r\n      width: 100%;\r\n      height: 100%;\r\n      background-color: currentcolor;\r\n      opacity: value('masker-opacity');\r\n    }\r\n  }\r\n\r\n  &--inner &__mask {\r\n    position: absolute;\r\n  }\r\n\r\n  &__placeholder {\r\n    @include fixed {\r\n      pointer-events: none;\r\n      visibility: hidden;\r\n    }\r\n  }\r\n\r\n  &__content {\r\n    width: 0;\r\n    height: 0;\r\n  }\r\n\r\n  &--disabled {\r\n    pointer-events: none;\r\n\r\n    & > * {\r\n      pointer-events: auto;\r\n    }\r\n  }\r\n}\r\n"
+    }
+  ]
+}

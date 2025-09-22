@@ -1,0 +1,10 @@
+{
+  "name": "native-scroll.scss",
+  "type": "registry:style",
+  "files": [
+    {
+      "target": "style/native-scroll.scss",
+      "content": "@use './shared' as *;\r\n@use './design' as *;\r\n\r\n.#{$namespace}-native-scroll {\r\n  @include basis {\r\n    position: relative;\r\n    overflow: hidden;\r\n  }\r\n\r\n  @include inherit-color;\r\n\r\n  &__wrapper {\r\n    position: relative;\r\n    width: 100%;\r\n    height: 100%;\r\n    overflow: scroll;\r\n    vertical-align: top;\r\n    scrollbar-width: none;\r\n\r\n    @include clear-both;\r\n\r\n    &::-webkit-scrollbar {\r\n      display: none;\r\n    }\r\n  }\r\n\r\n  &--vertical > &__wrapper {\r\n    overflow-x: hidden;\r\n  }\r\n\r\n  &--horizontal > &__wrapper {\r\n    overflow-y: hidden;\r\n  }\r\n\r\n  &--horizontal > &__wrapper,\r\n  &--both > &__wrapper {\r\n    display: inline-block;\r\n  }\r\n\r\n  &__extra {\r\n    position: absolute;\r\n    inset-inline-start: 0;\r\n    top: 0;\r\n    width: 100%;\r\n    height: 100%;\r\n    pointer-events: none;\r\n  }\r\n\r\n  &__extra-inner {\r\n    position: sticky;\r\n    inset-inline-start: 0;\r\n    top: 0;\r\n    width: 100%;\r\n    height: 100%;\r\n\r\n    & > * {\r\n      pointer-events: auto;\r\n    }\r\n  }\r\n\r\n  &--both > &__bar--horizontal {\r\n    width: calc(100% - value('scrollbar-width') + 1px);\r\n  }\r\n\r\n  &--both > &__bar--vertical {\r\n    height: calc(100% - value('scrollbar-width') + 1px);\r\n  }\r\n}\r\n"
+    }
+  ]
+}

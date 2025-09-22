@@ -1,0 +1,10 @@
+{
+  "name": "spin.scss",
+  "type": "registry:style",
+  "files": [
+    {
+      "target": "style/spin.scss",
+      "content": "@use 'sass:map';\r\n\r\n@use './shared' as *;\r\n@use './design' as *;\r\n\r\n$spin: () !default;\r\n$spin: map.merge(\r\n  (\r\n    z-index: value('z-index-masker'),\r\n    mask-bg-color: value('bg-color-base'),\r\n    mask-opacity: 40%,\r\n    icon-color: value('color-primary-base'),\r\n    tip-color: value('color-primary-base'),\r\n    tip-font-size: value('font-size-secondary')\r\n  ),\r\n  $spin\r\n);\r\n\r\n.#{$namespace}-spin {\r\n  &-vars {\r\n    @include define-preset-values('spin', $spin);\r\n  }\r\n\r\n  @include basis {\r\n    position: relative;\r\n  }\r\n\r\n  &--inner,\r\n  &__loading {\r\n    position: absolute;\r\n    inset: 0;\r\n    z-index: value('spin-z-index');\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    justify-content: center;\r\n    pointer-events: none;\r\n\r\n    & > * {\r\n      pointer-events: auto;\r\n    }\r\n  }\r\n\r\n  &__mask {\r\n    position: absolute;\r\n    inset: 0;\r\n    background-color: value('spin-mask-bg-color');\r\n    opacity: value('spin-mask-opacity');\r\n  }\r\n\r\n  &__icon {\r\n    position: relative;\r\n    color: value('spin-icon-color');\r\n  }\r\n\r\n  &__tip {\r\n    position: relative;\r\n    padding-top: 3px;\r\n    font-size: value('spin-tip-font-size');\r\n    color: value('spin-tip-color');\r\n    user-select: none;\r\n  }\r\n}\r\n"
+    }
+  ]
+}
