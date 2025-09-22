@@ -1,0 +1,15 @@
+{
+  "name": "upload-list",
+  "type": "registry:component",
+  "description": "上传列表组件，用于管理和显示多个上传文件。",
+  "files": [
+    {
+      "target": "components/upload-list/index.ts",
+      "content": "import UploadList from '../upload/upload-list.vue'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { UploadList }\nexport { uploadListProps } from '../upload/props'\n\nexport type UploadListExposed = ComponentPublicInstance & InstanceType<typeof UploadList>\nexport type { UploadListProps, UploadListCProps } from '../upload/props'\n"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": ["form"],
+  "meta": { "isReferenceOnly": true }
+}

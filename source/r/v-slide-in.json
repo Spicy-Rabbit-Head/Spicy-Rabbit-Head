@@ -1,0 +1,14 @@
+{
+  "name": "v-slide-in",
+  "type": "registry:directive",
+  "description": "",
+  "files": [
+    {
+      "target": "directives\\slide-in\\index.ts",
+      "content": "import { ObjectDirective } from 'vue'\n\nconst DISTANCE = 120\nconst DURATION = 500\nconst map = new WeakMap<HTMLElement, Animation>()\nconst ob = new IntersectionObserver(entries => {\n  for (const entry of entries) {\n    if (entry.isIntersecting) {\n      const animation = map.get(<HTMLElement>entry.target)\n      if (animation) {\n        animation.play()\n        ob.unobserve(entry.target)\n      }\n    }\n  }\n})\n\nfunction isBelowViewport(el: HTMLElement): boolean {\n  const rect = el.getBoundingClientRect()\n  return rect.top - DISTANCE > window.innerHeight\n}\n\nexport const vSlideIn: ObjectDirective<HTMLElement> = {\n  mounted(el) {\n    if (!isBelowViewport(el)) {\n      return\n    }\n    const animation = el.animate(\n      [\n        {\n          transform: `translateY(${DISTANCE}px)`,\n          opacity: 0.5\n        },\n        {\n          transform: 'translateY(0)',\n          opacity: 1\n        }\n      ],\n      {\n        duration: DURATION,\n        easing: 'ease-in-out',\n        fill: 'forwards'\n      }\n    )\n    animation.pause()\n    ob.observe(el)\n    map.set(el, animation)\n  },\n  unmounted(el) {\n    ob.unobserve(el)\n  }\n}\n"
+    }
+  ],
+  "dependencies": ["vue"],
+  "registryDependencies": [],
+  "categories": ["directive"]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "tour-step",
+  "type": "registry:component",
+  "description": "漫游步骤组件，作为漫游引导的单个步骤项。",
+  "files": [
+    {
+      "target": "components/tour-step/index.ts",
+      "content": "import TourStep from '../tour/tour-step'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { TourStep }\nexport { tourStepProps } from '../tour/props'\n\nexport type TourStepExposed = ComponentPublicInstance & InstanceType<typeof TourStep>\nexport type { TourStepProps, TourStepCProps } from '../tour/props'\n"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": ["other"],
+  "meta": { "isReferenceOnly": true }
+}

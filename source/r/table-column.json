@@ -1,0 +1,15 @@
+{
+  "name": "table-column",
+  "type": "registry:component",
+  "description": "表格列组件，用于定义表格的列结构和数据显示方式。",
+  "files": [
+    {
+      "target": "components/table-column/index.ts",
+      "content": "import TableColumn from '../table/table-column'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { TableColumn }\nexport { tableColumnProps } from '../table/props'\n\nexport type TableColumnExposed = ComponentPublicInstance & InstanceType<typeof TableColumn>\nexport type { TableColumnProps, TableColumnCProps } from '../table/props'\n"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": ["display"],
+  "meta": { "isReferenceOnly": true }
+}

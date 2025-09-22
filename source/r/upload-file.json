@@ -1,0 +1,15 @@
+{
+  "name": "upload-file",
+  "type": "registry:component",
+  "description": "上传文件组件，用于显示单个上传文件的状态和进度。",
+  "files": [
+    {
+      "target": "components/upload-file/index.ts",
+      "content": "import UploadFile from '../upload/upload-file.vue'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { UploadFile }\nexport { uploadFileProps } from '../upload/props'\n\nexport type UploadFileExposed = ComponentPublicInstance & InstanceType<typeof UploadFile>\nexport type { UploadFileProps, UploadFileCProps } from '../upload/props'\n"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": ["form"],
+  "meta": { "isReferenceOnly": true }
+}

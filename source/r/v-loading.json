@@ -1,0 +1,14 @@
+{
+  "name": "v-loading",
+  "type": "registry:directive",
+  "description": "",
+  "files": [
+    {
+      "target": "directives\\loading\\index.ts",
+      "content": "import { Spin } from '@/components/spin'\n\nimport { createVNode, nextTick, render } from 'vue'\n\nimport { isObject } from '@pocui/utils'\n\nimport type { SpinProps } from '@/components/spin'\n\nimport type { DirectiveBinding, ObjectDirective, VNode } from 'vue'\n\ninterface LoadingRecord {\n  spin: VNode,\n\n  props: SpinProps,\n\n  originPosition: string\n}\n\nfunction createSpin(el: HTMLElement & { __loading?: LoadingRecord }, binding: DirectiveBinding<boolean | SpinProps>) {\n  const props: SpinProps = isObject(binding.value) ? { ...binding.value } : { active: binding.value }\n\n  props.inner = true\n\n  const spin = createVNode(Spin, props, null, 0, Object.keys(props))\n  const position = getComputedStyle(el).position\n\n  el.__loading = {\n    spin,\n    props,\n    originPosition: position\n  }\n\n  if (position === 'static') {\n    el.style.position = 'relative'\n  }\n\n  render(spin, el)\n}\n\nexport const vLoading: ObjectDirective<HTMLElement & { __loading?: LoadingRecord }, boolean | SpinProps> = {\n  mounted(el, binding) {\n    nextTick(() => createSpin(el, binding))\n  },\n  updated(el, binding) {\n    nextTick(() => {\n      if (!el.__loading) {\n        createSpin(el, binding)\n        return\n      }\n\n      const props: SpinProps = isObject(binding.value) ? binding.value : { active: binding.value }\n      const component = el.__loading.spin.component\n\n      if (component) {\n        Object.keys(props).forEach(key => {\n          component.props[key] = props[key as keyof SpinProps]\n        })\n\n        component.props.inner = true\n      }\n    })\n  },\n  beforeUnmount(el) {\n    if (!el.__loading) return\n\n    render(null, el)\n    delete el.__loading\n  }\n}\n"
+    }
+  ],
+  "dependencies": ["vue", "@pocui/utils"],
+  "registryDependencies": ["spin"],
+  "categories": ["directive"]
+}

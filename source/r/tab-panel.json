@@ -1,0 +1,15 @@
+{
+  "name": "tab-panel",
+  "type": "registry:component",
+  "description": "标签面板组件，作为标签页的内容面板。",
+  "files": [
+    {
+      "target": "components/tab-panel/index.ts",
+      "content": "import TabPanel from '../tabs/tab-panel.vue'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { TabPanel }\nexport { tabPanelProps } from '../tabs/props'\n\nexport type TabPanelExposed = ComponentPublicInstance & InstanceType<typeof TabPanel>\nexport type { TabPanelProps } from '../tabs/props'\n"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": ["navigation"],
+  "meta": { "isReferenceOnly": true }
+}

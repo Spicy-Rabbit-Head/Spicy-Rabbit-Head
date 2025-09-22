@@ -1,0 +1,15 @@
+{
+  "name": "tab-nav-item",
+  "type": "registry:component",
+  "description": "标签导航项组件，作为标签导航栏的单个标签项。",
+  "files": [
+    {
+      "target": "components/tab-nav-item/index.ts",
+      "content": "import TabNavItem from '../tab-nav/tab-nav-item.vue'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { TabNavItem }\nexport { tabNavItemProps } from '../tab-nav/props'\n\nexport type TabNavItemExposed = ComponentPublicInstance & InstanceType<typeof TabNavItem>\nexport type { TabNavItemProps } from '../tab-nav/props'\n"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": ["navigation"],
+  "meta": { "isReferenceOnly": true }
+}

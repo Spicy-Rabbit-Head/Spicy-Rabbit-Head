@@ -1,0 +1,10 @@
+{
+  "name": "tabs.scss",
+  "type": "registry:style",
+  "files": [
+    {
+      "target": "style/tabs.scss",
+      "content": "@use './shared' as *;\r\n@use './design' as *;\r\n\r\n.#{$namespace}-tabs {\r\n  @include basis {\r\n    position: relative;\r\n    display: flex;\r\n    flex-direction: column;\r\n    overflow: hidden;\r\n  }\r\n\r\n  @include inherit-color;\r\n\r\n  &__header {\r\n    display: flex;\r\n    flex-shrink: 0;\r\n    min-width: 0;\r\n    min-height: 0;\r\n\r\n    .#{$namespace}-tab-nav {\r\n      width: 100%;\r\n      height: 100%;\r\n    }\r\n  }\r\n\r\n  &__main {\r\n    position: relative;\r\n    display: flex;\r\n    flex: auto;\r\n    min-width: 0;\r\n    min-height: 0;\r\n    transition: value('transition-transform');\r\n  }\r\n\r\n  $header: #{&}__header;\r\n  $main: #{&}__main;\r\n  $panel: #{&}__panel;\r\n\r\n  &--top {\r\n    #{$main} {\r\n      padding-top: 10px;\r\n    }\r\n  }\r\n\r\n  &--right {\r\n    flex-direction: row-reverse;\r\n\r\n    #{$main} {\r\n      padding-inline-end: 10px;\r\n    }\r\n  }\r\n\r\n  &--bottom {\r\n    flex-direction: column-reverse;\r\n\r\n    #{$main} {\r\n      padding-bottom: 10px;\r\n    }\r\n  }\r\n\r\n  &--left {\r\n    flex-direction: row;\r\n\r\n    #{$main} {\r\n      padding-inline-start: 10px;\r\n    }\r\n  }\r\n\r\n  &__panel {\r\n    position: absolute;\r\n    flex-shrink: 0;\r\n    width: 100%;\r\n    opacity: 0%;\r\n\r\n    &--active {\r\n      position: relative;\r\n      z-index: 1;\r\n      opacity: 100%;\r\n    }\r\n\r\n    &--lazy {\r\n      display: none;\r\n      opacity: 100%;\r\n\r\n      &#{$panel}--active {\r\n        display: block;\r\n      }\r\n    }\r\n  }\r\n}\r\n"
+    }
+  ]
+}

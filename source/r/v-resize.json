@@ -1,0 +1,14 @@
+{
+  "name": "v-resize",
+  "type": "registry:directive",
+  "description": "",
+  "files": [
+    {
+      "target": "directives\\resize\\index.ts",
+      "content": "import { useResize } from '@pocui/hooks'\nimport { noop, throttle } from '@pocui/utils'\n\nimport type { ResizeHandler } from '@pocui/hooks'\n\nimport type { DirectiveBinding, ObjectDirective } from 'vue'\n\nconst { observeResize, unobserveResize } = useResize()\n\nexport interface VResizeOptions {\n  handler: ResizeHandler,\n\n  throttle?: boolean | number,\n\n  disabled?: boolean\n}\n\ninterface ResizeRecord {\n  useThrottle: boolean | number,\n\n  observed: boolean\n}\n\nfunction createObserver(\n  el: HTMLElement & { __resize?: ResizeRecord },\n  binding: DirectiveBinding<ResizeHandler | VResizeOptions>\n) {\n  const options: VResizeOptions =\n    typeof binding.value === 'function' ? { handler: binding.value } : { ...binding.value }\n  const useThrottle = options.throttle || binding.modifiers.throttle\n\n  el.__resize = {\n    useThrottle,\n    observed: false\n  }\n\n  if (options.disabled) {\n    unobserveResize(el)\n    el.__resize.observed = false\n    return\n  }\n\n  const throttleResize = useThrottle\n    ? throttle(options.handler, typeof useThrottle === 'boolean' ? 16 : useThrottle)\n    : options.handler\n\n  observeResize(el, throttleResize)\n  el.__resize.observed = true\n}\n\nexport const vResize: ObjectDirective<HTMLElement & { __resize?: ResizeRecord }, ResizeHandler | VResizeOptions> = {\n  mounted(el, binding) {\n    createObserver(el, binding)\n  },\n  updated(el, binding) {\n    if (!el.__resize) {\n      createObserver(el, binding)\n      return\n    }\n\n    const options: VResizeOptions =\n      typeof binding.value === 'function' ? { handler: binding.value } : { ...binding.value }\n    const useThrottle = options.throttle || binding.modifiers.throttle\n\n    const getHandler = () =>\n      useThrottle ? throttle(options.handler, typeof useThrottle === 'boolean' ? 16 : useThrottle) : options.handler\n\n    if (options.disabled) {\n      if (el.__resize.observed) {\n        unobserveResize(el)\n        el.__resize.observed = false\n      }\n    } else if (!el.__resize.observed) {\n      observeResize(el, getHandler())\n      el.__resize.observed = true\n    } else {\n      const prevOptions: VResizeOptions =\n        typeof binding.oldValue === 'function'\n          ? { handler: binding.oldValue }\n          : { ...(binding.oldValue || { handler: noop }) }\n\n      if (useThrottle !== el.__resize.useThrottle || options.handler !== prevOptions.handler) {\n        unobserveResize(el)\n        observeResize(el, getHandler())\n      }\n    }\n  },\n  beforeUnmount(el) {\n    if (el.__resize?.observed) {\n      unobserveResize(el)\n    }\n\n    delete el.__resize\n  }\n}\n"
+    }
+  ],
+  "dependencies": ["@pocui/hooks", "@pocui/utils", "vue"],
+  "registryDependencies": [],
+  "categories": ["directive"]
+}

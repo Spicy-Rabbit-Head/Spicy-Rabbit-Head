@@ -1,0 +1,15 @@
+{
+  "name": "timeline-item",
+  "type": "registry:component",
+  "description": "时间轴项组件，作为时间轴的单个时间节点项。",
+  "files": [
+    {
+      "target": "components/timeline-item/index.ts",
+      "content": "import TimelineItem from '../timeline/timeline-item.vue'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { TimelineItem }\nexport { timelineItemProps } from '../timeline/props'\n\nexport type TimelineItemExposed = ComponentPublicInstance & InstanceType<typeof TimelineItem>\n\nexport type { TimelineItemProps, TimelineItemCProps } from '../timeline/props'\n"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": ["display"],
+  "meta": { "isReferenceOnly": true }
+}

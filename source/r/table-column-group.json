@@ -1,0 +1,15 @@
+{
+  "name": "table-column-group",
+  "type": "registry:component",
+  "description": "表格列组组件，用于对相关的表格列进行分组管理。",
+  "files": [
+    {
+      "target": "components/table-column-group/index.ts",
+      "content": "import TableColumnGroup from '../table/table-column-group'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { TableColumnGroup }\nexport { tableColumnGroupProps } from '../table/props'\n\nexport type TableColumnGroupExposed = ComponentPublicInstance & InstanceType<typeof TableColumnGroup>\nexport type { TableColumnGroupProps, TableColumnGroupCProps } from '../table/props'\n"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": ["display"],
+  "meta": { "isReferenceOnly": true }
+}

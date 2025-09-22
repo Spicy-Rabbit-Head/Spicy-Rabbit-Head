@@ -1,0 +1,15 @@
+{
+  "name": "time-picker",
+  "type": "registry:component",
+  "description": "当你需要选择时间或时间范围时会用到它。",
+  "files": [
+    {
+      "target": "components/time-picker/index.ts",
+      "content": "import TimePicker from '../date-picker/time-picker.vue'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { TimePicker }\nexport { timePickerProps } from '../date-picker/props'\n\nexport type TimePickerExposed = ComponentPublicInstance & InstanceType<typeof TimePicker>\n\nexport type { TimePickerProps, TimePickerCProps } from '../date-picker/props'\n"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": ["form"],
+  "meta": { "isReferenceOnly": true }
+}

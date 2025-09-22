@@ -1,0 +1,10 @@
+{
+  "name": "virtual-list.scss",
+  "type": "registry:style",
+  "files": [
+    {
+      "target": "style/virtual-list.scss",
+      "content": "@use './shared' as *;\r\n@use './design' as *;\r\n\r\n.#{$namespace}-virtual-list {\r\n  &__items {\r\n    padding: 0;\r\n    margin: 0;\r\n    list-style: none;\r\n  }\r\n}\r\n"
+    }
+  ]
+}

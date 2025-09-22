@@ -1,0 +1,15 @@
+{
+  "name": "table-summary",
+  "type": "registry:component",
+  "description": "表格汇总组件，用于定义表格的汇总行数据显示。",
+  "files": [
+    {
+      "target": "components/table-summary/index.ts",
+      "content": "import TableSummary from '../table/table-summary'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { TableSummary }\nexport { tableSummaryProps } from '../table/props'\n\nexport type TableSummaryExposed = ComponentPublicInstance & InstanceType<typeof TableSummary>\nexport type { TableSummaryProps, TableSummaryCProps } from '../table/props'\n"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": ["display"],
+  "meta": { "isReferenceOnly": true }
+}

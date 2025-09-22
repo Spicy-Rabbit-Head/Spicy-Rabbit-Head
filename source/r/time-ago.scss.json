@@ -1,0 +1,10 @@
+{
+  "name": "time-ago.scss",
+  "type": "registry:style",
+  "files": [
+    {
+      "target": "style/time-ago.scss",
+      "content": "@use './shared' as *;\r\n@use './design' as *;\r\n\r\n.#{$namespace}-time-ago {\r\n  @include basis {\r\n    display: inline-block;\r\n  }\r\n\r\n  @include inherit-color;\r\n}\r\n"
+    }
+  ]
+}
