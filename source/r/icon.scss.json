@@ -1,0 +1,10 @@
+{
+  "name": "icon.scss",
+  "type": "registry:style",
+  "files": [
+    {
+      "target": "style/icon.scss",
+      "content": "@use './shared' as *;\r\n@use './design' as *;\r\n\r\n.#{$namespace}-icon {\r\n  display: inline-flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  overflow: visible;\r\n  vertical-align: -0.125em;\r\n  transition: value('transition-transform');\r\n  transform-origin: 50% 50%;\r\n\r\n  & > g {\r\n    display: flex;\r\n    transform: rotate(value('icon-rotate', 0));\r\n  }\r\n\r\n  svg {\r\n    width: 1em;\r\n    height: 1em;\r\n    line-height: 1;\r\n    fill: currentcolor;\r\n\r\n    &.lucide {\r\n      fill: none;\r\n      stroke: currentcolor;\r\n    }\r\n  }\r\n\r\n  &--flip-horizontal > g {\r\n    transform: scale(-1, 1) rotate(value('icon-rotate', 0));\r\n  }\r\n\r\n  &--flip-vertical > g {\r\n    transform: scale(1, -1) rotate(value('icon-rotate', 0));\r\n  }\r\n\r\n  &--flip-both > g {\r\n    transform: scale(-1, -1) rotate(value('icon-rotate', 0));\r\n  }\r\n\r\n  &--spin-in > g {\r\n    animation: #{$namespace}-spin-in 1s 0s infinite linear;\r\n  }\r\n\r\n  &--spin-out > g {\r\n    animation: #{$namespace}-spin-out 1s 0s infinite linear;\r\n  }\r\n\r\n  &--pulse-in > g {\r\n    animation: #{$namespace}-spin-in 1s infinite steps(8);\r\n  }\r\n\r\n  &--pulse-out > g {\r\n    animation: #{$namespace}-spin-out 1s infinite steps(8);\r\n  }\r\n}\r\n"
+    }
+  ]
+}
