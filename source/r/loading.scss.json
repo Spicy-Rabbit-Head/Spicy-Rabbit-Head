@@ -1,0 +1,10 @@
+{
+  "name": "loading.scss",
+  "type": "registry:style",
+  "files": [
+    {
+      "target": "style/loading.scss",
+      "content": "@use 'sass:map';\r\n\r\n@use './shared' as *;\r\n@use './design' as *;\r\n\r\n$loading: () !default;\r\n$loading: map.merge(\r\n  (\r\n    z-index: value('z-index-popup'),\r\n    filler-bg-color: value('color-primary-base')\r\n  ),\r\n  $loading\r\n);\r\n\r\n.#{$namespace}-loading {\r\n  &-vars {\r\n    @include define-preset-values('loading', $loading);\r\n  }\r\n\r\n  @include basis {\r\n    position: fixed;\r\n    inset-inline-start: 0;\r\n    z-index: value('loading-z-index');\r\n    width: 100%;\r\n  }\r\n\r\n  &__filler {\r\n    width: 100%;\r\n    height: 100%;\r\n    pointer-events: none;\r\n    background-color: value('loading-filler-bg-color');\r\n    transition: value('transition-background'), value('transition-transform');\r\n    will-change: transform;\r\n  }\r\n\r\n  $types: success error warning;\r\n\r\n  @each $type in $types {\r\n    &--#{$type} &__filler {\r\n      @include define-css-var('loading-filler-bg-color', value('color' $type 'base'));\r\n    }\r\n  }\r\n}\r\n"
+    }
+  ]
+}

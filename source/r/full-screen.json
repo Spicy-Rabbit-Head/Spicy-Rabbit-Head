@@ -1,0 +1,27 @@
+{
+  "name": "full-screen",
+  "type": "registry:component",
+  "description": "这个组件将帮助你快速实现全屏展示一些内容。",
+  "files": [
+    {
+      "target": "components/full-screen/full-screen.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Portal } from '@/components/portal'\n\nimport { computed, ref, watch } from 'vue'\n\nimport { emitEvent, useNameHelper, useProps } from '@pocui/config'\nimport { useFullScreen } from '@pocui/hooks'\nimport { getGlobalCount } from '@pocui/utils'\n\nimport { fullScreenProps } from './props'\n\nimport type { FullScreenSlotParams, FullScreenType } from './symbol'\n\ndefineOptions({ name: 'FullScreen',\n  description: '这个组件将帮助你快速实现全屏展示一些内容。',\n  categories: ['other'] })\n\nconst _props = defineProps(fullScreenProps)\nconst props = useProps('fullScreen', _props, {\n  tag: 'div'\n})\n\ndefineSlots<{ default(props: FullScreenSlotParams): any }>()\n\nconst nh = useNameHelper('full-screen')\n\nconst placeId = `__poc-full-screen-id-${getGlobalCount()}`\n\nconst isEntered = ref(false)\nconst zIndex = ref<number>()\nconst fullType = ref<FullScreenType>()\n\nconst full = computed(() => isEntered.value && fullType.value!)\nconst className = computed(() => [nh.b(), nh.bs('vars'), { [nh.bm('full')]: full.value }])\nconst transferTo = computed(() => (fullType.value === 'window' ? 'body' : ''))\n\nconst { enter: browserEnter, exit: browserExit, target: wrapper, full: browserFull } = useFullScreen()\n\nwatch(browserFull, value => {\n  if (!value) {\n    isEntered.value = false\n    fullType.value = undefined\n  }\n})\nwatch(full, value => {\n  emitEvent(props.onToggle, value)\n})\n\nasync function enter(type: FullScreenType = 'window', customZIndex?: number) {\n  if (isEntered.value) {\n    await exit()\n  }\n\n  if (type !== 'window') {\n    await browserEnter()\n  }\n\n  isEntered.value = true\n  zIndex.value = customZIndex\n  fullType.value = type !== 'window' ? 'browser' : 'window'\n}\n\nasync function exit() {\n  await browserExit()\n\n  zIndex.value = undefined\n  isEntered.value = false\n  fullType.value = undefined\n}\n\nasync function toggle(type: FullScreenType = 'window', zIndex?: number) {\n  if (isEntered.value) {\n    if (fullType.value !== type) {\n      await enter(type, zIndex)\n    } else {\n      await exit()\n    }\n  } else {\n    await enter(type, zIndex)\n  }\n}\n\ndefineExpose({\n  full,\n  placeId,\n  wrapper,\n  enter,\n  exit,\n  toggle\n})\n</script>\n\n<template>\n  <Portal :to=\"transferTo\">\n    <component\n      :is=\"props.tag || 'div'\"\n      v-bind=\"$attrs\"\n      ref=\"wrapper\"\n      :class=\"className\"\n      :style=\"{ [nh.cv('z-index')]: zIndex }\"\n    >\n      <slot\n        :full=\"full\"\n        :place-id=\"placeId\"\n        :enter=\"enter\"\n        :exit=\"exit\"\n        :toggle=\"toggle\"\n      ></slot>\n      <div :id=\"placeId\" :class=\"nh.be('place')\" role=\"none\"></div>\n    </component>\n  </Portal>\n</template>\n"
+    },
+    {
+      "target": "components/full-screen/index.ts",
+      "content": "import FullScreen from './full-screen.vue'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { FullScreen }\nexport { fullScreenProps } from './props'\n\nexport type FullScreenExposed = ComponentPublicInstance & InstanceType<typeof FullScreen>\n\nexport type { FullScreenProps, FullScreenCProps } from './props'\nexport type { FullScreenType, FullScreenSlotParams } from './symbol'\n"
+    },
+    {
+      "target": "components/full-screen/props.ts",
+      "content": "import { buildProps, eventProp } from '@pocui/config'\n\nimport type { ConfigurableProps } from '@pocui/config'\n\nimport type { ExtractPropTypes } from 'vue'\nimport type { FullScreenType } from './symbol'\n\nexport const fullScreenProps = buildProps({\n  tag: String,\n  onToggle: eventProp<(full: false | FullScreenType) => void>()\n})\n\nexport type FullScreenProps = ExtractPropTypes<typeof fullScreenProps>\nexport type FullScreenCProps = ConfigurableProps<FullScreenProps, 'model'>\n"
+    },
+    {
+      "target": "components/full-screen/symbol.ts",
+      "content": "export type FullScreenType = 'window' | 'browser'\n\nexport interface FullScreenSlotParams {\n  full: false | FullScreenType,\n  placeId: string,\n  enter: (type?: FullScreenType, zIndex?: number) => Promise<void>,\n  exit: () => Promise<void>,\n  toggle: (type?: FullScreenType, zIndex?: number) => Promise<void>\n}\n"
+    }
+  ],
+  "dependencies": ["vue", "@pocui/config", "@pocui/hooks", "@pocui/utils"],
+  "registryDependencies": ["portal", "full-screen.scss"],
+  "categories": ["other"],
+  "meta": { "isReferenceOnly": false }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "carousel-item",
+  "type": "registry:component",
+  "description": "走马灯的单个子项，通常由 Carousel 组件使用。",
+  "files": [
+    {
+      "target": "components/carousel-item/index.ts",
+      "content": "import CarouselItem from '../carousel/carousel-item.vue'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { CarouselItem }\nexport type CarouselItemExposed = ComponentPublicInstance & InstanceType<typeof CarouselItem>\n"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": ["display"],
+  "meta": { "isReferenceOnly": true }
+}

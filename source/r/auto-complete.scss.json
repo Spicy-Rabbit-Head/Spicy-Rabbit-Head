@@ -1,0 +1,10 @@
+{
+  "name": "auto-complete.scss",
+  "type": "registry:style",
+  "files": [
+    {
+      "target": "style/auto-complete.scss",
+      "content": "@use './shared' as *;\r\n@use './design' as *;\r\n\r\n.#{$namespace}-auto-complete {\r\n  &__input {\r\n    width: 100%;\r\n    height: 100%;\r\n    padding: 0;\r\n    font-size: inherit;\r\n    line-height: value('input-line-height');\r\n    color: value('input-control-color');\r\n    background-color: transparent;\r\n    border: 0;\r\n    border-radius: value('input-radius');\r\n    outline: 0;\r\n\r\n    &::placeholder {\r\n      color: value('input-placeholder-color');\r\n    }\r\n  }\r\n}\r\n"
+    }
+  ]
+}

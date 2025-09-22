@@ -1,0 +1,15 @@
+{
+  "name": "cell",
+  "type": "registry:component",
+  "description": "栅格子项，实现灵活的内容区域划分。",
+  "files": [
+    {
+      "target": "components/cell/index.ts",
+      "content": "import Cell from '../grid/cell'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { Cell }\nexport { cellProps } from '../grid/props'\n\nexport type CellExposed = ComponentPublicInstance & InstanceType<typeof Cell>\n\nexport type { CellProps, CellCProps } from '../grid/props'\nexport type { CellOptions } from '../grid/symbol'\n"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": ["display"],
+  "meta": { "isReferenceOnly": true }
+}

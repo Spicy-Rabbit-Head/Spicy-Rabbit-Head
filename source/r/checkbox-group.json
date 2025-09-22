@@ -1,0 +1,15 @@
+{
+  "name": "checkbox-group",
+  "type": "registry:component",
+  "description": "用于将多个 Checkbox 组合在一起，形成一组复选框集合。",
+  "files": [
+    {
+      "target": "components/checkbox-group/index.ts",
+      "content": "import CheckboxGroup from '../checkbox/checkbox-group.vue'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { CheckboxGroup }\nexport { checkboxGroupProps } from '../checkbox/props'\n\nexport type CheckboxGroupExposed = ComponentPublicInstance & InstanceType<typeof CheckboxGroup>\n\nexport type { CheckboxGroupProps, CheckboxGroupCProps } from '../checkbox/props'\n"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": ["form"],
+  "meta": { "isReferenceOnly": true }
+}

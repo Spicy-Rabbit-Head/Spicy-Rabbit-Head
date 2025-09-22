@@ -1,0 +1,10 @@
+{
+  "name": "grid.scss",
+  "type": "registry:style",
+  "files": [
+    {
+      "target": "style/grid.scss",
+      "content": "@use './shared' as *;\r\n@use './design' as *;\r\n\r\n.#{$namespace}-grid {\r\n  @include basis {\r\n    position: relative;\r\n    display: grid;\r\n  }\r\n\r\n  @include inherit-color;\r\n\r\n  &--dense {\r\n    grid-auto-flow: row dense;\r\n  }\r\n\r\n  &--start {\r\n    justify-content: start;\r\n  }\r\n\r\n  &--end {\r\n    justify-content: end;\r\n  }\r\n\r\n  &--center {\r\n    justify-content: center;\r\n  }\r\n\r\n  &--space-around {\r\n    justify-content: space-around;\r\n  }\r\n\r\n  &--space-between {\r\n    justify-content: space-between;\r\n  }\r\n\r\n  &--space-evenly {\r\n    justify-content: space-evenly;\r\n  }\r\n\r\n  &--top {\r\n    align-items: start;\r\n  }\r\n\r\n  &--middle {\r\n    align-items: center;\r\n  }\r\n\r\n  &--bottom {\r\n    align-items: end;\r\n  }\r\n}\r\n"
+    }
+  ]
+}

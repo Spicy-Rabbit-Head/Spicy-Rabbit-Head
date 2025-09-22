@@ -1,0 +1,27 @@
+{
+  "name": "divider",
+  "type": "registry:component",
+  "description": "区隔内容的分割线，用于对不同章节的文本段落进行分割或者对行内元素进行分割。",
+  "files": [
+    {
+      "target": "components/divider/divider.vue",
+      "content": "<script setup lang=\"ts\">\nimport { computed } from 'vue'\n\nimport { useNameHelper, useProps } from '@pocui/config'\nimport { toCssSize } from '@pocui/utils'\nimport { dividerProps } from './props'\n\ndefineOptions({ name: 'Divider' ,\n  description: '区隔内容的分割线，用于对不同章节的文本段落进行分割或者对行内元素进行分割。',\n  categories: ['layout'] })\n\nconst _props = defineProps(dividerProps)\nconst props = useProps('divider', _props, {\n  vertical: false,\n  textPosition: {\n    default: 'center',\n    validator: value => ['center', 'left', 'right'].includes(value)\n  },\n  primary: false,\n  dashed: false,\n  margin: null\n})\n\nconst slots = defineSlots<{ default(): any }>()\n\nconst nh = useNameHelper('divider')\n\nconst hasText = computed(() => !!slots.default)\nconst className = computed(() => {\n  return [\n    nh.b(),\n    nh.bs('vars'),\n    nh.bm(props.vertical ? 'vertical' : 'horizontal'),\n    {\n      [nh.inc()]: props.inherit,\n      [nh.bm('primary')]: !props.vertical && props.primary,\n      [nh.bm('dashed')]: props.dashed,\n      [nh.bm('with-text')]: !props.vertical && hasText.value,\n      [nh.bm(`with-text-${props.textPosition}`)]: !props.vertical && hasText.value && props.textPosition !== 'center'\n    }\n  ]\n})\nconst margin = computed(() => toCssSize(props.margin))\nconst style = computed(() => {\n  if (!margin.value) return {}\n\n  return props.vertical\n    ? {\n        marginRight: margin.value,\n        marginLeft: margin.value\n      }\n    : {\n        marginTop: margin.value,\n        marginBottom: margin.value\n      }\n})\n</script>\n\n<template>\n  <div :class=\"className\" role=\"separator\" :style=\"style\">\n    <span v-if=\"!props.vertical && hasText\" :class=\"nh.be('text')\">\n      <slot></slot>\n    </span>\n  </div>\n</template>\n"
+    },
+    {
+      "target": "components/divider/index.ts",
+      "content": "import Divider from './divider.vue'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { Divider }\nexport { dividerProps } from './props'\n\nexport type DividerExposed = ComponentPublicInstance & InstanceType<typeof Divider>\n\nexport type { DividerProps, DividerCProps } from './props'\nexport type { DividerTextPosition } from './symbol'\n"
+    },
+    {
+      "target": "components/divider/props.ts",
+      "content": "import { booleanProp, buildProps } from '@pocui/config'\n\nimport type { ConfigurableProps } from '@pocui/config'\n\nimport type { ExtractPropTypes, PropType } from 'vue'\nimport type { DividerTextPosition } from './symbol'\n\nexport const dividerProps = buildProps({\n  vertical: booleanProp,\n  textPosition: String as PropType<DividerTextPosition>,\n  /**\n   * 字体增大加粗\n   */\n  primary: booleanProp,\n  dashed: booleanProp,\n  margin: [String, Number]\n})\n\nexport type DividerProps = ExtractPropTypes<typeof dividerProps>\nexport type DividerCProps = ConfigurableProps<DividerProps>\n"
+    },
+    {
+      "target": "components/divider/symbol.ts",
+      "content": "export type DividerTextPosition = 'center' | 'left' | 'right'\n"
+    }
+  ],
+  "dependencies": ["vue", "@pocui/config", "@pocui/utils"],
+  "registryDependencies": ["divider.scss"],
+  "categories": ["layout"],
+  "meta": { "isReferenceOnly": false }
+}

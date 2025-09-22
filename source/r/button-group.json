@@ -1,0 +1,15 @@
+{
+  "name": "button-group",
+  "type": "registry:component",
+  "description": "按钮组，用于将多个按钮组合在一起。",
+  "files": [
+    {
+      "target": "components/button-group/index.ts",
+      "content": "import ButtonGroup from '../button/button-group.vue'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { ButtonGroup }\nexport { buttonGroupProps } from '../button/props'\n\nexport type ButtonGroupExposed = ComponentPublicInstance & InstanceType<typeof ButtonGroup>\n\nexport type { ButtonGroupProps, ButtonGroupCProps } from '../button/props'\n"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": ["basic"],
+  "meta": { "isReferenceOnly": true }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "full-screen.scss",
+  "type": "registry:style",
+  "files": [
+    {
+      "target": "style/full-screen.scss",
+      "content": "@use 'sass:map';\r\n@use './shared' as *;\r\n@use './design' as *;\r\n\r\n$full-screen: () !default;\r\n$full-screen: map.merge(\r\n  (\r\n    z-index: value(z-index-full),\r\n    inset: 0,\r\n    width: 100vw,\r\n    height: 100vh\r\n  ),\r\n  $full-screen\r\n);\r\n\r\n.#{$namespace}-full-screen {\r\n  &-vars {\r\n    @include define-preset-values('full-screen', $full-screen);\r\n  }\r\n\r\n  @include basis;\r\n  @include inherit-color;\r\n\r\n  &--full {\r\n    position: fixed !important;\r\n    inset: value(full-screen-inset) !important;\r\n    z-index: value(full-screen-z-index) !important;\r\n    width: value(full-screen-width) !important;\r\n    height: value(full-screen-height) !important;\r\n  }\r\n}\r\n"
+    }
+  ]
+}

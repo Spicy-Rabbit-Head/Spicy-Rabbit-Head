@@ -1,0 +1,10 @@
+{
+  "name": "card.scss",
+  "type": "registry:style",
+  "files": [
+    {
+      "target": "style/card.scss",
+      "content": "@use 'sass:map';\r\n\r\n@use './shared' as *;\r\n@use './design' as *;\r\n\r\n$card: () !default;\r\n$card: map.merge(\r\n  (\r\n    bg-color: value('bg-color-base'),\r\n    b-color: value('border-color-light-1'),\r\n    border: value('border-shape') value('card-b-color'),\r\n    radius: value('radius-base'),\r\n    s-color: value('shadow-color-base'),\r\n    shadow: value('shadow-shape') value('card-s-color'),\r\n    d-color: value('border-color-light-2'),\r\n    divider: value('border-shape') value('card-d-color'),\r\n    title-font-size: value('font-size-primary'),\r\n    header-v-padding: 14px,\r\n    header-h-padding: 16px,\r\n    body-v-padding: 14px,\r\n    body-h-padding: 16px\r\n  ),\r\n  $card\r\n);\r\n\r\n.#{$namespace}-card {\r\n  &-vars {\r\n    @include define-preset-values('card', $card);\r\n  }\r\n\r\n  @include basis {\r\n    display: flex;\r\n    flex-direction: column;\r\n    background-color: value('card-bg-color');\r\n    border: value('card-border');\r\n    border-radius: value('card-radius');\r\n    box-shadow: 0 0 0 transparent;\r\n    transition: value('transition-shadow');\r\n  }\r\n\r\n  @include inherit-color;\r\n\r\n  &--shadow-always {\r\n    box-shadow: value('card-shadow');\r\n  }\r\n\r\n  &--shadow-hover {\r\n    &:hover {\r\n      box-shadow: value('card-shadow');\r\n    }\r\n  }\r\n\r\n  &__header {\r\n    display: flex;\r\n    flex: 0 0 auto;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n    min-height: 0;\r\n    padding: value('card-header-v-padding') value('card-header-h-padding');\r\n    border-bottom: value('card-divider');\r\n  }\r\n\r\n  &__title {\r\n    font-size: value('card-title-font-size');\r\n  }\r\n\r\n  &__content {\r\n    flex: 1 0 auto;\r\n    min-height: 0;\r\n    padding: value('card-body-v-padding') value('card-body-h-padding');\r\n  }\r\n}\r\n"
+    }
+  ]
+}

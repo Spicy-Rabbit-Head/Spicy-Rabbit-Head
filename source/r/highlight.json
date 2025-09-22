@@ -1,0 +1,23 @@
+{
+  "name": "highlight",
+  "type": "registry:component",
+  "description": "对一段文本中特定内容进行高亮，常用于对文字内容检索后对关键词的快速高亮。",
+  "files": [
+    {
+      "target": "components/highlight/highlight.vue",
+      "content": "<script setup lang=\"ts\">\nimport { computed } from 'vue'\n\nimport { useNameHelper, useProps } from '@pocui/config'\nimport { highlightProps } from './props'\n\ndefineOptions({ name: 'Highlight',\n  description: '对一段文本中特定内容进行高亮，常用于对文字内容检索后对关键词的快速高亮。',\n  categories: ['display'] })\n\nconst _props = defineProps(highlightProps)\nconst props = useProps('highlight', _props, {\n  content: {\n    default: '',\n    static: true\n  },\n  keyWords: {\n    default: () => [],\n    static: true\n  },\n  ignoreCase: false\n})\n\nconst nh = useNameHelper('highlight')\ndefineSlots<{\n  default(props: { text: string }): any,\n  light(props: { text: string }): any\n}>()\n\nconst splitRE = computed(() => {\n  const keyWords = props.keyWords?.filter(Boolean)\n\n  if (!keyWords?.length) {\n    return null\n  }\n\n  return new RegExp(`(${keyWords.sort((p, n) => n.length - p.length).join('|')})`, `${props.ignoreCase ? 'i' : ''}g`)\n})\nconst renderTexts = computed(() => {\n  if (!splitRE.value || !props.content) {\n    return [\n      {\n        isKey: false,\n        text: props.content\n      }\n    ]\n  }\n\n  return props.content.split(splitRE.value).map(text => {\n    return {\n      isKey: splitRE.value!.test(text),\n      text\n    }\n  })\n})\n</script>\n\n<template>\n  <div :class=\"[nh.b(), nh.bs('vars'), props.inherit && nh.inc()]\">\n    <template v-for=\"(item, _index) in renderTexts\" :key=\"_index\">\n      <span v-if=\"item.isKey\" :class=\"nh.be('key-word')\">\n        <slot name=\"light\" :text=\"item.text\">\n          {{ item.text }}\n        </slot>\n      </span>\n      <span v-else>\n        <slot :text=\"item.text\">\n          {{ item.text }}\n        </slot>\n      </span>\n    </template>\n  </div>\n</template>\n"
+    },
+    {
+      "target": "components/highlight/index.ts",
+      "content": "import Highlight from './highlight.vue'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { Highlight }\nexport { highlightProps } from './props'\n\nexport type HighlightExposed = ComponentPublicInstance & InstanceType<typeof Highlight>\n\nexport type { HighlightProps, HighlightCProps } from './props'\n"
+    },
+    {
+      "target": "components/highlight/props.ts",
+      "content": "import { booleanProp, buildProps } from '@pocui/config'\n\nimport type { ConfigurableProps } from '@pocui/config'\n\nimport type { ExtractPropTypes, PropType } from 'vue'\n\nexport const highlightProps = buildProps({\n  content: String,\n  keyWords: Array as PropType<string[]>,\n  ignoreCase: booleanProp\n})\n\nexport type HighlightProps = ExtractPropTypes<typeof highlightProps>\nexport type HighlightCProps = ConfigurableProps<HighlightProps, 'content' | 'keyWords'>\n"
+    }
+  ],
+  "dependencies": ["vue", "@pocui/config"],
+  "registryDependencies": ["highlight.scss"],
+  "categories": ["display"],
+  "meta": { "isReferenceOnly": false }
+}

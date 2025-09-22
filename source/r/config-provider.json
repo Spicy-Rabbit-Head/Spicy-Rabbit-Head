@@ -1,0 +1,23 @@
+{
+  "name": "config-provider",
+  "type": "registry:component",
+  "description": "配置注入用于为其内部组件的提供各项配置。",
+  "files": [
+    {
+      "target": "components/config-provider/config-provider.tsx",
+      "content": "import { defineComponent, renderSlot, toRefs } from 'vue'\n\nimport {\n  configHoverDelay,\n  configIcons,\n  configLocale,\n  configProps,\n  configZIndex,\n  useNameHelper\n} from '@pocui/config'\nimport { configProviderProps } from './props'\n\nexport default defineComponent({\n  name: 'ConfigProvider',\n  description:'配置注入用于为其内部组件的提供各项配置。',\n  categories: ['other'],\n  props: configProviderProps,\n  setup(_props, { slots }) {\n    const { props, locale, icons, zIndex, theme, hoverDelay } = toRefs(_props)\n\n    const nh = useNameHelper('config-provider')\n\n    configProps(props)\n    configLocale(locale)\n    configIcons(icons)\n    configZIndex(zIndex)\n    configHoverDelay(hoverDelay)\n\n    return () => {\n      if (theme.value) {\n        return <section class={[nh.b(), nh.ns(`theme-vars-${theme.value}`)]}>{renderSlot(slots, 'default')}</section>\n      }\n\n      return renderSlot(slots, 'default')\n    }\n  }\n})\n"
+    },
+    {
+      "target": "components/config-provider/index.ts",
+      "content": "import ConfigProvider from './config-provider'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { ConfigProvider }\nexport { configProviderProps } from './props'\n\nexport type ConfigProviderExposed = ComponentPublicInstance & InstanceType<typeof ConfigProvider>\nexport type { ConfigProviderProps } from './props'\n"
+    },
+    {
+      "target": "components/config-provider/props.ts",
+      "content": "import { wrapProps } from '@pocui/config'\n\nimport type { PropsOptions } from '@/components/props'\nimport type { IconsOptions, LocaleOptions } from '@pocui/config'\n\nimport type { ExtractPropTypes, PropType } from 'vue'\n\nexport const configProviderProps = wrapProps({\n  props: {\n    type: Object as PropType<PropsOptions>,\n    default: () => ({})\n  },\n  locale: {\n    type: Object as PropType<LocaleOptions>,\n    default: () => ({})\n  },\n  icons: {\n    type: Object as PropType<IconsOptions>,\n    default: () => ({})\n  },\n  zIndex: {\n    type: Number,\n    default: null\n  },\n  theme: {\n    // eslint-disable-next-line @typescript-eslint/ban-types\n    type: String as PropType<'base' | 'dark' | (string & {})>,\n    default: null\n  },\n  hoverDelay: {\n    type: Number,\n    default: null\n  }\n})\n\nexport type ConfigProviderProps = ExtractPropTypes<typeof configProviderProps>\n"
+    }
+  ],
+  "dependencies": ["vue", "@pocui/config"],
+  "registryDependencies": ["config-provider.scss", "props"],
+  "categories": ["other"],
+  "meta": { "isReferenceOnly": false }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "breadcrumb-item",
+  "type": "registry:component",
+  "description": "Breadcrumb 的子组件，表示面包屑中的每一项。",
+  "files": [
+    {
+      "target": "components/breadcrumb-item/index.ts",
+      "content": "import BreadcrumbItem from '../breadcrumb/breadcrumb-item.vue'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { BreadcrumbItem }\nexport { breadcrumbItemProps } from '../breadcrumb/props'\n\nexport type BreadcrumbItemExposed = ComponentPublicInstance & InstanceType<typeof BreadcrumbItem>\nexport type { BreadcrumbItemProps } from '../breadcrumb/props'\n"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": ["navigation"],
+  "meta": { "isReferenceOnly": true }
+}

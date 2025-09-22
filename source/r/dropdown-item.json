@@ -1,0 +1,15 @@
+{
+  "name": "dropdown-item",
+  "type": "registry:component",
+  "description": "单条菜单项组件，是用户在下拉列表中执行命令的最小交互单元。",
+  "files": [
+    {
+      "target": "components/dropdown-item/index.ts",
+      "content": "import DropdownItem from '../dropdown/dropdown-item.vue'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { DropdownItem }\nexport { dropdownItemProps } from '../dropdown/props'\n\nexport type DropdownItemExposed = ComponentPublicInstance & InstanceType<typeof DropdownItem>\nexport type { DropdownItemProps } from '../dropdown/props'\n"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": ["navigation"],
+  "meta": { "isReferenceOnly": true }
+}

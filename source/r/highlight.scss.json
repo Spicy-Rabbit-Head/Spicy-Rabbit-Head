@@ -1,0 +1,10 @@
+{
+  "name": "highlight.scss",
+  "type": "registry:style",
+  "files": [
+    {
+      "target": "style/highlight.scss",
+      "content": "@use 'sass:map';\r\n\r\n@use './shared' as *;\r\n@use './design' as *;\r\n\r\n$highlight: () !default;\r\n$highlight: map.merge(\r\n  (\r\n    color: value('color-warning-base'),\r\n    bg-color: transparent\r\n  ),\r\n  $highlight\r\n);\r\n\r\n.#{$namespace}-highlight {\r\n  &-vars {\r\n    @include define-preset-values('highlight', $highlight);\r\n  }\r\n\r\n  @include basis;\r\n  @include inherit-color;\r\n\r\n  &__key-word {\r\n    padding: 0 1px;\r\n    margin: 0 1px;\r\n    color: value('highlight-color');\r\n    text-indent: 0;\r\n    background-color: value('highlight-bg-color');\r\n  }\r\n}\r\n"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "linker",
+  "type": "registry:component",
+  "description": "Linker 用于在页面间导航，支持多种类型、图标和禁用状态。",
+  "files": [
+    {
+      "target": "components/linker/index.ts",
+      "content": "import Linker from './linker.vue'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { Linker }\nexport { linkerProps } from './props'\n\nexport type LinkerExposed = ComponentPublicInstance & InstanceType<typeof Linker>\n\nexport type { LinkerProps, LinkerCProps } from './props'\n"
+    },
+    {
+      "target": "components/linker/linker.vue",
+      "content": "<script setup lang=\"ts\">\nimport { Icon } from '@/components/icon'\n\nimport { computed } from 'vue'\n\nimport { createIconProp, emitEvent, useNameHelper, useProps } from '@pocui/config'\n\nimport { linkerProps } from './props'\n\nimport type { LinkerType } from './symbol'\n\nconst linkerTypes = Object.freeze<LinkerType[]>(['default', 'primary', 'success', 'error', 'warning', 'info'])\n\ndefineOptions({ name: 'Linker' ,\n  description:'Linker 用于在页面间导航，支持多种类型、图标和禁用状态。',\n  categories: ['other'] })\n\nconst _props = defineProps(linkerProps)\nconst props = useProps('linker', _props, {\n  to: {\n    default: null,\n    static: true\n  },\n  type: {\n    default: 'default' as LinkerType,\n    validator: (value: LinkerType) => linkerTypes.includes(value)\n  },\n  icon: createIconProp(),\n  underline: false,\n  disabled: false,\n  target: '_blank'\n})\n\ndefineSlots<{\n  icon(): any\n}>()\n\nconst nh = useNameHelper('linker')\n\nconst className = computed(() => {\n  return [\n    nh.b(),\n    nh.bs('vars'),\n    {\n      [nh.in()]: props.inherit,\n      [nh.bm(props.type)]: props.type !== 'default',\n      [nh.bm('disabled')]: props.disabled,\n      [nh.bm('underline')]: props.underline\n    }\n  ]\n})\n\nfunction handleClick(event: MouseEvent) {\n  if (props.disabled) {\n    event.preventDefault()\n  }\n\n  emitEvent(props.onClick, event)\n}\n</script>\n\n<template>\n  <a\n    :class=\"className\"\n    :href=\"props.to\"\n    tabindex=\"0\"\n    :target=\"props.target\"\n    @click=\"handleClick\"\n  >\n    <slot name=\"icon\">\n      <Icon v-if=\"props.icon\" :class=\"nh.be('icon')\" :icon=\"props.icon\"></Icon>\n    </slot>\n    <slot></slot>\n  </a>\n</template>\n"
+    },
+    {
+      "target": "components/linker/props.ts",
+      "content": "import { booleanProp, buildProps, eventProp, iconProp } from '@pocui/config'\n\nimport type { ConfigurableProps } from '@pocui/config'\n\nimport type { ExtractPropTypes, PropType } from 'vue'\nimport type { LinkerType } from './symbol'\n\nexport const linkerProps = buildProps({\n  to: String,\n  type: String as PropType<LinkerType>,\n  icon: iconProp,\n  underline: booleanProp,\n  disabled: booleanProp,\n  target: String,\n  onClick: eventProp<(event: MouseEvent) => void>()\n})\n\nexport type LinkerProps = ExtractPropTypes<typeof linkerProps>\nexport type LinkerCProps = ConfigurableProps<LinkerProps, 'to'>\n"
+    },
+    {
+      "target": "components/linker/symbol.ts",
+      "content": "export type LinkerType = 'default' | 'primary' | 'success' | 'error' | 'warning' | 'info'\n"
+    }
+  ],
+  "dependencies": ["vue", "@pocui/config"],
+  "registryDependencies": ["linker.scss", "icon"],
+  "categories": ["other"],
+  "meta": { "isReferenceOnly": false }
+}

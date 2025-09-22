@@ -1,0 +1,15 @@
+{
+  "name": "form-item",
+  "type": "registry:component",
+  "description": "单字段包装器，实现标签-控件-提示三件套及字段级验证。",
+  "files": [
+    {
+      "target": "components/form-item/index.ts",
+      "content": "import FormItem from '../form/form-item.vue'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { FormItem }\nexport { formItemProps } from '../form/props'\n\nexport type FormItemExposed = ComponentPublicInstance & InstanceType<typeof FormItem>\n\nexport type { FormItemProps, FormItemCProps } from '../form/props'\n"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": ["form"],
+  "meta": { "isReferenceOnly": true }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "image-group",
+  "type": "registry:component",
+  "description": "图片组容器，简化图集排版。",
+  "files": [
+    {
+      "target": "components/image-group/index.ts",
+      "content": "import ImageGroup from '../image/image-group.vue'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { ImageGroup }\nexport { imageGroupProps } from '@/components/image/props'\n\nexport type ImageGroupExposed = ComponentPublicInstance & InstanceType<typeof ImageGroup>\n\nexport type { ImageGroupProps, ImageGroupCProps } from '@/components/image/props'\n"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": ["display"],
+  "meta": { "isReferenceOnly": true }
+}

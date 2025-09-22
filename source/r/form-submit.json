@@ -1,0 +1,15 @@
+{
+  "name": "form-submit",
+  "type": "registry:component",
+  "description": "提交按钮，内置校验触发与加载状态管理，通过 Form 上下文完成数据收集、校验及最终提交逻辑。",
+  "files": [
+    {
+      "target": "components/form-submit/index.ts",
+      "content": "import FormSubmit from '../form/form-submit.vue'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { FormSubmit }\nexport { formSubmitProps } from '../form/props'\n\nexport type FormSubmitExposed = ComponentPublicInstance & InstanceType<typeof FormSubmit>\n\nexport type { FormSubmitProps, FormSubmitCProps } from '../form/props'\n"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": ["form"],
+  "meta": { "isReferenceOnly": true }
+}

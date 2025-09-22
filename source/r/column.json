@@ -1,0 +1,15 @@
+{
+  "name": "column",
+  "type": "registry:component",
+  "description": "栅格列组件，用于在栅格系统中定义列布局",
+  "files": [
+    {
+      "target": "components/column/index.ts",
+      "content": "import Column from '../row/column'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { Column }\nexport { columnProps } from '../row/props'\n\nexport type ColumnExposed = ComponentPublicInstance & InstanceType<typeof Column>\n\nexport type { ColumnProps, ColumnCProps } from '../row/props'\nexport type { ColumnOptions } from '../row/symbol'\n"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": ["layout"],
+  "meta": { "isReferenceOnly": true }
+}

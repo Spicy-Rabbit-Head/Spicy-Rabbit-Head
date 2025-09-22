@@ -1,0 +1,15 @@
+{
+  "name": "avatar-group",
+  "type": "registry:component",
+  "description": "将多个 Avatar 组合在一起展示，支持头像数量限制和超出数量提示等功能。",
+  "files": [
+    {
+      "target": "components/avatar-group/index.ts",
+      "content": "import AvatarGroup from '../avatar/avatar-group.vue'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { AvatarGroup }\nexport { avatarGroupProps } from '../avatar/props'\n\nexport type AvatarGroupExposed = ComponentPublicInstance & InstanceType<typeof AvatarGroup>\n\nexport type { AvatarGroupProps, AvatarGroupCProps } from '../avatar/props'\n"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": ["display"],
+  "meta": { "isReferenceOnly": true }
+}

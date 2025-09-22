@@ -1,0 +1,15 @@
+{
+  "name": "form-reset",
+  "type": "registry:component",
+  "description": "重置按钮，一键还原表单到初始值并清除所有校验错误。",
+  "files": [
+    {
+      "target": "components/form-reset/index.ts",
+      "content": "import FormReset from '../form/form-reset.vue'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { FormReset }\nexport { formResetProps } from '../form/props'\n\nexport type FormResetExposed = ComponentPublicInstance & InstanceType<typeof FormReset>\n\nexport type { FormResetProps, FormResetCProps } from '../form/props'\n"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": ["form"],
+  "meta": { "isReferenceOnly": true }
+}

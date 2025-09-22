@@ -1,0 +1,5 @@
+{
+  "name": "config-provider.scss",
+  "type": "registry:style",
+  "files": [{ "target": "style/config-provider.scss", "content": "" }]
+}

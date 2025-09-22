@@ -1,0 +1,27 @@
+{
+  "name": "bubble",
+  "type": "registry:component",
+  "description": "气泡提示，用于展示提示、说明或轻量对话内容。",
+  "files": [
+    {
+      "target": "components/bubble/bubble.vue",
+      "content": "<script setup lang=\"ts\">\nimport { computed, ref } from 'vue'\n\nimport { useNameHelper, useProps } from '@pocui/config'\n\nimport { placementWhileList } from '@pocui/hooks'\nimport { bubbleProps } from './props'\nimport { bubbleTypes } from './symbol'\n\ndefineOptions({\n  name: 'Bubble',\n  description: '气泡提示，用于展示提示、说明或轻量对话内容。',\n  categories: ['feedback']\n})\n\nconst _props = defineProps(bubbleProps)\nconst props = useProps('bubble', _props, {\n  placement: {\n    default: 'right',\n    validator: value => placementWhileList.includes(value)\n  },\n  type: {\n    default: null,\n    validator: value => bubbleTypes.includes(value)\n  },\n  backgroundColor: '',\n  shadow: false,\n  contentClass: null\n})\n\nconst nh = useNameHelper('bubble')\n\nconst wrapper = ref<HTMLElement>()\nconst arrow = ref<HTMLElement>()\n\nconst className = computed(() => {\n  return [\n    nh.b(),\n    nh.bs('vars'),\n    nh.bm(props.placement),\n    {\n      [nh.in()]: props.inherit,\n      [nh.bm('background')]: props.backgroundColor,\n      [nh.bm('shadow')]: props.shadow,\n      [nh.bm(props.type)]: props.type !== 'default'\n    }\n  ]\n})\nconst style = computed(() => {\n  if (props.backgroundColor) {\n    return {\n      [nh.cv('color')]: nh.gnv('color-white'),\n      [nh.cv('bg-color')]: props.backgroundColor\n    }\n  }\n\n  return undefined\n})\n\ndefineExpose({\n  wrapper,\n  arrow\n})\n</script>\n\n<template>\n  <div ref=\"wrapper\" :class=\"className\" :style=\"style\">\n    <div\n      :class=\"[nh.be('content'), props.contentClass]\"\n      :style=\"{\n        boxShadow: props.shadow ? `0 0 4px ${props.shadow}` : undefined\n      }\"\n    >\n      <slot></slot>\n    </div>\n    <div ref=\"arrow\" :class=\"nh.be('arrow')\"></div>\n  </div>\n</template>\n"
+    },
+    {
+      "target": "components/bubble/index.ts",
+      "content": "import Bubble from './bubble.vue'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { Bubble }\nexport { bubbleProps } from './props'\n\nexport type BubbleExposed = ComponentPublicInstance & InstanceType<typeof Bubble>\n\nexport type { BubbleProps, BubbleCProps } from './props'\nexport type { BubbleType } from './symbol'\n"
+    },
+    {
+      "target": "components/bubble/props.ts",
+      "content": "import { booleanStringProp, buildProps, classProp } from '@pocui/config'\n\nimport type { ConfigurableProps } from '@pocui/config'\nimport type { Placement } from '@pocui/hooks'\n\nimport type { ExtractPropTypes, PropType } from 'vue'\nimport type { BubbleType } from './symbol'\n\nexport const bubbleProps = buildProps({\n  placement: String as PropType<Placement>,\n  type: String as PropType<BubbleType>,\n  backgroundColor: String,\n  shadow: booleanStringProp,\n  contentClass: classProp\n})\n\nexport type BubbleProps = ExtractPropTypes<typeof bubbleProps>\nexport type BubbleCProps = ConfigurableProps<BubbleProps>\n"
+    },
+    {
+      "target": "components/bubble/symbol.ts",
+      "content": "export type BubbleType = 'default' | 'primary' | 'info' | 'success' | 'warning' | 'error'\n\nexport const bubbleTypes = Object.freeze<BubbleType[]>([\n  'default',\n  'primary',\n  'info',\n  'success',\n  'warning',\n  'error'\n])\n"
+    }
+  ],
+  "dependencies": ["vue", "@pocui/config", "@pocui/hooks"],
+  "registryDependencies": ["bubble.scss"],
+  "categories": ["feedback"],
+  "meta": { "isReferenceOnly": false }
+}

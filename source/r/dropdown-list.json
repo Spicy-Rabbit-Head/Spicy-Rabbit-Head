@@ -1,0 +1,15 @@
+{
+  "name": "dropdown-list",
+  "type": "registry:component",
+  "description": "下拉面板容器。",
+  "files": [
+    {
+      "target": "components/dropdown-list/index.ts",
+      "content": "import DropdownList from '../dropdown/dropdown-list.vue'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { DropdownList }\nexport type DropdownListExposed = ComponentPublicInstance & InstanceType<typeof DropdownList>\n"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": ["navigation"],
+  "meta": { "isReferenceOnly": true }
+}

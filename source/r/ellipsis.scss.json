@@ -1,0 +1,10 @@
+{
+  "name": "ellipsis.scss",
+  "type": "registry:style",
+  "files": [
+    {
+      "target": "style/ellipsis.scss",
+      "content": "@use './shared' as *;\r\n@use './design' as *;\r\n\r\n.#{$namespace}-ellipsis {\r\n  @include basis {\r\n    display: inline-block;\r\n    width: 100%;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n  }\r\n\r\n  @include inherit-color;\r\n\r\n  &__tip {\r\n    padding: 8px 14px 10px;\r\n  }\r\n\r\n  &--multiple {\r\n    /* stylelint-disable-next-line value-no-vendor-prefix */\r\n    display: -webkit-inline-box;\r\n    width: 100%;\r\n    -webkit-line-clamp: 1;\r\n    -webkit-box-orient: vertical;\r\n    overflow: hidden;\r\n    white-space: inherit;\r\n  }\r\n}\r\n"
+    }
+  ]
+}

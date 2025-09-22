@@ -1,0 +1,10 @@
+{
+  "name": "fireworks.scss",
+  "type": "registry:style",
+  "files": [
+    {
+      "target": "style/fireworks.scss",
+      "content": "@use './shared' as *;\r\n@use './design' as *;\r\n\r\n.#{$namespace}-fireworks {\r\n  @include basis {\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    z-index: 9999;\r\n    width: 100%;\r\n    height: 100%;\r\n    pointer-events: none;\r\n  }\r\n}\r\n"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "card",
+  "type": "registry:component",
+  "description": "基础的容器，可承载文字、列表、图片、段落等内容，常用于需要集中浏览的一组内容。",
+  "files": [
+    {
+      "target": "components/card/card.vue",
+      "content": "<script setup lang=\"ts\">\nimport { computed } from \"vue\";\n\nimport { useNameHelper, useProps } from \"@pocui/config\";\nimport { cardProps } from \"./props\";\n\nimport type { CardShadowType } from \"./symbol\";\n\ndefineOptions({\n  name: \"Card\",\n  description:\n    \"基础的容器，可承载文字、列表、图片、段落等内容，常用于需要集中浏览的一组内容。\",\n  categories: [\"display\"],\n});\n\nconst _props = defineProps(cardProps);\nconst props = useProps(\"card\", _props, {\n  title: \"\",\n  shadow: {\n    default: \"always\" as CardShadowType,\n    validator: (value: CardShadowType) =>\n      [\"always\", \"hover\", \"never\"].includes(value),\n  },\n  contentStyle: () => ({}),\n});\n\nconst slots = defineSlots<{\n  default(): any;\n  header(): any;\n  title(): any;\n  extra(): any;\n}>();\n\nconst nh = useNameHelper(\"card\");\n\nconst className = computed(() => {\n  return [\n    nh.b(),\n    nh.bs(\"vars\"),\n    nh.bm(`shadow-${props.shadow}`),\n    {\n      [nh.inc()]: props.inherit,\n    },\n  ];\n});\nconst hasTitle = computed(() => !!slots.title || props.title);\nconst hasExtra = computed(() => !!slots.extra);\nconst hasHeader = computed(\n  () => !!slots.header || hasTitle.value || hasExtra.value,\n);\n</script>\n\n<template>\n  <article :class=\"className\">\n    <div v-if=\"hasHeader\" :class=\"nh.be('header')\">\n      <slot name=\"header\">\n        <div v-if=\"hasTitle\" :class=\"nh.be('title')\">\n          <slot name=\"title\">\n            {{ props.title }}\n          </slot>\n        </div>\n        <div v-if=\"hasExtra\" :class=\"nh.be('extra')\">\n          <slot name=\"extra\"></slot>\n        </div>\n      </slot>\n    </div>\n    <div :class=\"nh.be('content')\" :style=\"props.contentStyle\">\n      <slot></slot>\n    </div>\n  </article>\n</template>\n"
+    },
+    {
+      "target": "components/card/index.ts",
+      "content": "import Card from './card.vue'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { Card }\nexport { cardProps } from './props'\n\nexport type CardExposed = ComponentPublicInstance & InstanceType<typeof Card>\n\nexport type { CardProps, CardCProps } from './props'\nexport type { CardShadowType } from './symbol'\n"
+    },
+    {
+      "target": "components/card/props.ts",
+      "content": "import { buildProps, styleProp } from '@pocui/config'\n\nimport type { ConfigurableProps } from '@pocui/config'\n\nimport type { ExtractPropTypes, PropType } from 'vue'\nimport type { CardShadowType } from './symbol'\n\nexport const cardProps = buildProps({\n  title: String,\n  shadow: String as PropType<CardShadowType>,\n  contentStyle: styleProp\n})\n\nexport type CardProps = ExtractPropTypes<typeof cardProps>\nexport type CardCProps = ConfigurableProps<CardProps>\n"
+    },
+    {
+      "target": "components/card/symbol.ts",
+      "content": "export type CardShadowType = 'always' | 'hover' | 'never'\n"
+    }
+  ],
+  "dependencies": ["vue", "@pocui/config"],
+  "registryDependencies": ["card.scss"],
+  "categories": ["display"],
+  "meta": { "isReferenceOnly": false }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "calendar-panel",
+  "type": "registry:component",
+  "description": "日历面板组件，用于显示日历网格和日期选择。",
+  "files": [
+    {
+      "target": "components/calendar-panel/index.ts",
+      "content": "import CalendarPanel from '../calendar/calendar-panel.vue'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { CalendarPanel }\nexport { calendarPanelProps } from '../calendar/props'\n\nexport type CalendarPanelExposed = ComponentPublicInstance & InstanceType<typeof CalendarPanel>\n\nexport type { CalendarPanelProps, CalendarPanelCProps } from '../calendar/props'\n"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": ["display"],
+  "meta": { "isReferenceOnly": true }
+}

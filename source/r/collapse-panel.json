@@ -1,0 +1,15 @@
+{
+  "name": "collapse-panel",
+  "type": "registry:component",
+  "description": "Collapse 子面板组件，提供可点击的标题栏与内容区域。",
+  "files": [
+    {
+      "target": "components/collapse-panel/index.ts",
+      "content": "import CollapsePanel from '../collapse/collapse-panel.vue'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { CollapsePanel }\nexport { collapsePanelProps } from '../collapse/props'\n\nexport type CollapsePanelExposed = ComponentPublicInstance & InstanceType<typeof CollapsePanel>\n\nexport type { CollapsePanelProps, CollapsePanelCProps } from '../collapse/props'\n"
+    }
+  ],
+  "dependencies": [],
+  "registryDependencies": [],
+  "categories": ["display"],
+  "meta": { "isReferenceOnly": true }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "badge",
+  "type": "registry:component",
+  "description": "在界面元素上附加视觉化提示信息（数量、状态、标识等）。",
+  "files": [
+    {
+      "target": "components/badge/badge.vue",
+      "content": "<script setup lang=\"ts\">\nimport { computed } from 'vue'\n\nimport { emitEvent, useNameHelper, useProps } from '@pocui/config'\n\nimport { badgeProps } from './props'\nimport { badgeTypes } from './symbol'\n\ndefineOptions({\n  name: 'Badge',\n  description: '在界面元素上附加视觉化提示信息（数量、状态、标识等）。',\n  categories: [\"display\"]\n})\nconst _props = defineProps(badgeProps)\nconst props = useProps('badge', _props, {\n  content: {\n    default: null,\n    static: true\n  },\n  max: 0,\n  disabled: false,\n  isDot: false,\n  type: {\n    default: 'error',\n    validator: value => badgeTypes.includes(value)\n  },\n  color: null\n})\n\nconst slots = defineSlots<{\n  content(props: { content: number | string }): any,\n  default(): any\n}>()\n\nconst nh = useNameHelper('badge')\n\nconst hasSlot = computed(() => {\n  return !!slots.default\n})\n\nconst className = computed(() => {\n  return [\n    nh.b(),\n    nh.bs('vars'),\n    {\n      [nh.in()]: props.inherit,\n      [nh.bm('not-wrapper')]: !hasSlot.value,\n      [nh.bm('is-dot')]: props.isDot\n    }\n  ]\n})\n\nconst renderContent = computed(() => {\n  if (props.isDot) return ''\n\n  if (typeof props.content === 'number' && props.max > 0) {\n    return props.content > props.max ? `${props.max}+` : props.content\n  }\n\n  return props.content\n})\n\nconst transitionName = computed(() => {\n  return hasSlot.value ? nh.bs('badge-zoom') : nh.bs('zoom')\n})\n\nconst title = computed(() => {\n  return props.content || props.content === 0 ? props.content.toString() : undefined\n})\n\nconst showSub = computed(() => {\n  return !props.disabled && (props.content || props.content === 0 || props.isDot)\n})\n\nfunction handleBadgeClick(event: MouseEvent) {\n  emitEvent(props.onBadgeClick, event)\n}\n</script>\n\n<template>\n  <div :class=\"className\">\n    <slot></slot>\n    <Transition :name=\"transitionName\">\n      <sup\n        v-show=\"showSub\"\n        :class=\"{\n          [nh.be('content')]: true,\n          [nh.bem('content', 'fixed')]: hasSlot,\n          [nh.bem('content', props.type)]: props.type !== 'error'\n        }\"\n        :style=\"{ backgroundColor: props.color }\"\n        :title=\"title\"\n        @click=\"handleBadgeClick\"\n      >\n        <slot name=\"content\" :content=\"renderContent\">\n          {{ renderContent }}\n        </slot>\n      </sup>\n    </Transition>\n  </div>\n</template>\n"
+    },
+    {
+      "target": "components/badge/index.ts",
+      "content": "import Badge from './badge.vue'\n\nimport type { ComponentPublicInstance } from 'vue'\n\nexport { Badge }\nexport { badgeProps } from './props'\n\nexport type BadgeExposed = ComponentPublicInstance & InstanceType<typeof Badge>\n\nexport type { BadgeProps, BadgeCProps } from './props'\nexport type { BadgeType } from './symbol'\n"
+    },
+    {
+      "target": "components/badge/props.ts",
+      "content": "import { booleanProp, buildProps, eventProp } from '@pocui/config'\n\nimport type { ConfigurableProps } from '@pocui/config'\n\nimport type { ExtractPropTypes, PropType } from 'vue'\nimport type { BadgeType } from './symbol'\n\n/**\n * 徽章组件的属性定义\n */\nexport const badgeProps = buildProps({\n  content: [Number, String],\n  max: Number,\n  disabled: booleanProp,\n  isDot: booleanProp,\n  type: String as PropType<BadgeType>,\n  color: String,\n  onBadgeClick: eventProp<(event: MouseEvent) => void>()\n})\n\nexport type BadgeProps = ExtractPropTypes<typeof badgeProps>\nexport type BadgeCProps = ConfigurableProps<BadgeProps, 'content'>\n"
+    },
+    {
+      "target": "components/badge/symbol.ts",
+      "content": "export type BadgeType = 'error' | 'primary' | 'success' | 'warning' | 'info' | 'disabled'\n\nexport const badgeTypes = Object.freeze<BadgeType[]>([\n  'error',\n  'primary',\n  'success',\n  'warning',\n  'info',\n  'disabled'\n])\n"
+    }
+  ],
+  "dependencies": ["vue", "@pocui/config"],
+  "registryDependencies": ["badge.scss"],
+  "categories": ["display"],
+  "meta": { "isReferenceOnly": false }
+}
