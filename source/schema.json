@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "PocUI 配置模式",
+  "description": "PocUI 组件库配置模式定义",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "JSON Schema 引用"
+    },
+    "dependencies": {
+      "type": "object",
+      "description": "项目依赖",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "registryDependencies": {
+      "type": "array",
+      "description": "已安装的注册依赖",
+      "items": {
+        "type": "string"
+      }
+    },
+    "components": {
+      "type": "array",
+      "description": "已安装的组件列表",
+      "items": {
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "组件名称"
+          },
+          "version": {
+            "type": "string",
+            "description": "组件版本",
+            "pattern": "^\\d+\\.\\d+\\.\\d+$"
+          },
+          "installedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "安装时间戳"
+          }
+        }
+      }
+    }
+  }
+}
