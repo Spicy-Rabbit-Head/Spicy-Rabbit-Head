@@ -1,6 +1,6 @@
 {
   "name": "option",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "选项组件，用于在选择器、下拉菜单等组件中提供可选择的选项。",
   "files": [
     {

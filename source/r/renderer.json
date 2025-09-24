@@ -1,6 +1,6 @@
 {
   "name": "renderer",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "当你想要在 <template> 里使用渲染函数，你可能需要它。",
   "files": [
     {

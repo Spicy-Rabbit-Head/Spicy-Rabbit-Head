@@ -1,6 +1,6 @@
 {
   "name": "resize-observer",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "尺寸监听组件，用于监听元素尺寸变化并触发回调",
   "files": [
     {

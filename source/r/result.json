@@ -1,6 +1,6 @@
 {
   "name": "result",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "通常用于为用户反馈操作结果或者异常。",
   "files": [
     {

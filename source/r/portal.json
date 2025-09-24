@@ -1,6 +1,6 @@
 {
   "name": "portal",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "传送门组件，用于将内容渲染到DOM树的其他位置",
   "files": [
     {

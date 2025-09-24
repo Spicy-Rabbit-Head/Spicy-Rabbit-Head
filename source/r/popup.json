@@ -1,6 +1,6 @@
 {
   "name": "popup",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "弹出框组件，用于在页面中创建模态或非模态的弹出内容。",
   "files": [
     {
@@ -21,7 +21,7 @@
     }
   ],
   "dependencies": ["vue", "@pocui/config", "@pocui/utils"],
-  "registryDependencies": ["renderer", "popup.scss"],
+  "registryDependencies": ["popup.scss", "renderer"],
   "categories": ["feedback"],
   "meta": { "isReferenceOnly": false }
 }

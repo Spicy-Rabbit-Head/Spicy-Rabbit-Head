@@ -1,6 +1,6 @@
 {
   "name": "overflow",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "用于在内容宽度/高度超出指定阈值时自动渲染更多等，保持界面整洁。",
   "files": [
     {
@@ -21,7 +21,7 @@
     }
   ],
   "dependencies": ["vue", "@pocui/config", "@pocui/utils"],
-  "registryDependencies": ["resize-observer", "overflow.scss"],
+  "registryDependencies": ["overflow.scss", "resize-observer"],
   "categories": ["other"],
   "meta": { "isReferenceOnly": false }
 }

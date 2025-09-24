@@ -1,6 +1,6 @@
 {
   "name": "menu",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "为页面和功能提供导航的菜单列表。",
   "files": [
     {

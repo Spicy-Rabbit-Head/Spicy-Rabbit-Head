@@ -1,6 +1,6 @@
 {
   "name": "message",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "常用于全局展示一些轻量级的交互反馈信息，如操作成功、失败等。",
   "files": [
     {

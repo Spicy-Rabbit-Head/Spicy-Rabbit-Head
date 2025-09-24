@@ -1,6 +1,6 @@
 {
   "name": "radio",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "需要在一组选项中进行单项选择时使用，或是结合单选框组用于需要表示两种状态之间的切换的场合。",
   "files": [
     {
@@ -24,8 +24,8 @@
       "content": "import type { IconEffect } from '@/components/icon'\nimport type { ComponentSize, ComponentState } from '@pocui/config'\nimport type { InjectionKey, Ref } from 'vue'\n\nexport type RadioShape = 'default' | 'border' | 'button'\nexport type RadioGroupShape = RadioShape | 'button-group'\n\nexport type RadioRawOption =\n  | string\n  | {\n    label: string | number | boolean,\n    content?: string,\n    disabled?: boolean\n  }\n\nexport interface GroupState {\n  currentValue: string | number | boolean,\n\n  size: ComponentSize,\n\n  state: ComponentState,\n\n  disabled: boolean,\n\n  loading: boolean,\n\n  loadingIcon: Record<string, any>,\n\n  loadingLock: boolean,\n\n  loadingEffect: IconEffect,\n\n  shape: RadioGroupShape,\n\n  updateValue(value: string | number | boolean): void,\n\n  registerInput(input: Ref<HTMLElement | null | undefined>): void,\n\n  unregisterInput(input: Ref<HTMLElement | null | undefined>): void\n}\n\nexport type ChangeEvent = (value: string | number | boolean) => void\n\nexport const GROUP_STATE: InjectionKey<GroupState> = Symbol('RADIO_GROUP_STATE')\n\nexport const radioShapes = Object.freeze<RadioShape[]>(['default', 'border', 'button'])\nexport const radioGroupShapes = Object.freeze<RadioGroupShape[]>([...radioShapes, 'button-group'])\n"
     }
   ],
-  "dependencies": ["vue", "@pocui/config", "@pocui/utils"],
-  "registryDependencies": ["radio.scss", "icon", "form", "collapse-transition"],
+  "dependencies": ["@pocui/config", "vue", "@pocui/utils"],
+  "registryDependencies": ["icon", "radio.scss", "form", "collapse-transition"],
   "categories": ["form"],
   "meta": { "isReferenceOnly": false }
 }

@@ -1,6 +1,6 @@
 {
   "name": "loading",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "通常用于反馈一些全局的加载状态，如页面路由切换、全局请求等。",
   "files": [
     {

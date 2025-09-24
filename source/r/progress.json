@@ -1,6 +1,6 @@
 {
   "name": "progress",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "进度条组件，用于展示任务的完成进度，支持多种样式和状态。",
   "files": [
     {

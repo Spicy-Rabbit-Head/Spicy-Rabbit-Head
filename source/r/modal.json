@@ -1,6 +1,6 @@
 {
   "name": "modal",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "模态框，用来放你想放的东西。",
   "files": [
     {

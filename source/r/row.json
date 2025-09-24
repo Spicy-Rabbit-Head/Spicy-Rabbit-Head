@@ -1,6 +1,6 @@
 {
   "name": "row",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "一维栅格布局组件，基于列来定义区域块，用于快捷地创建稳健的布局。",
   "files": [
     {

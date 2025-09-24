@@ -1,6 +1,6 @@
 {
   "name": "masker",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "用于在整个或局部页面之上创建可自定义透明度、颜色、动画与点击穿透的遮罩层。",
   "files": [
     {
@@ -17,7 +17,7 @@
     }
   ],
   "dependencies": ["vue", "@pocui/config", "@pocui/utils"],
-  "registryDependencies": ["portal", "resize-observer", "masker.scss"],
+  "registryDependencies": ["masker.scss", "portal", "resize-observer"],
   "categories": ["other"],
   "meta": { "isReferenceOnly": false }
 }
