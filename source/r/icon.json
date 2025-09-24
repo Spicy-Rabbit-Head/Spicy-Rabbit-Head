@@ -20,7 +20,7 @@
       "content": "import type { ClassType, StyleType } from '@pocui/config'\n\nexport type IconPresetEffect = 'spin-in' | 'spin-out' | 'pulse-in' | 'pulse-out'\n// eslint-disable-next-line @typescript-eslint/ban-types\nexport type IconEffect = IconPresetEffect | (string & {})\n\nexport interface IconBaseProps {\n  icon: Record<string, any>,\n\n  class?: ClassType,\n\n  style?: StyleType,\n\n  scale?: number | string,\n\n  title?: string,\n\n  label?: string,\n\n  flip?: 'horizontal' | 'vertical' | 'both',\n\n  effect?: IconEffect,\n\n  size?: string,\n\n  color?: string,\n\n  rotate?: number | string\n}\n\nexport type IconRenderer = (props: IconBaseProps, attrs: Record<string, any>, renderDefault: () => any) => any\n\nexport interface IconProps extends IconBaseProps {\n  renderer?: IconRenderer\n}\n\nexport type IconMinorProps = Omit<IconProps, 'icon'>\n"
     }
   ],
-  "dependencies": ["vue", "@pocui/config", "@pocui/utils"],
+  "dependencies": ["vue", "@pillars-of-creation-ui/config", "@pillars-of-creation-ui/utils"],
   "registryDependencies": ["icon.scss"],
   "categories": ["basic"],
   "meta": { "isReferenceOnly": false }
