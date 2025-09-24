@@ -1,6 +1,6 @@
 {
   "name": "image-viewer",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "全屏图片查看器，支持缩放、旋转、拖拽、键盘翻页及缩略图导航，实现沉浸式大图浏览体验。",
   "files": [
     {

@@ -1,6 +1,6 @@
 {
   "name": "breadcrumb-item",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "Breadcrumb 的子组件，表示面包屑中的每一项。",
   "files": [
     {

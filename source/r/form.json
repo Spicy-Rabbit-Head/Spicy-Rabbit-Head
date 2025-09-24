@@ -1,6 +1,6 @@
 {
   "name": "form",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "用于需要收集、验证一些信息的时候，快速创建表单域。",
   "files": [
     {

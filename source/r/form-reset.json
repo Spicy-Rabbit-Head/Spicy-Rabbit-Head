@@ -1,6 +1,6 @@
 {
   "name": "form-reset",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "重置按钮，一键还原表单到初始值并清除所有校验错误。",
   "files": [
     {

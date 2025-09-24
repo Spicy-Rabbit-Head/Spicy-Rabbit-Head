@@ -1,6 +1,6 @@
 {
   "name": "color-picker",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "提供一个选择器可用于让用户快速灵活地选择颜色值。",
   "files": [
     {

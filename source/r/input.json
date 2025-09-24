@@ -1,6 +1,6 @@
 {
   "name": "input",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "通过键入内容输入数据，是最基础的表单域的包装。",
   "files": [
     {
@@ -21,7 +21,7 @@
     }
   ],
   "dependencies": ["vue", "@pocui/hooks", "@pocui/utils", "@pocui/config"],
-  "registryDependencies": ["input.scss", "form", "icon"],
+  "registryDependencies": ["form", "icon", "input.scss"],
   "categories": ["form"],
   "meta": { "isReferenceOnly": false }
 }

@@ -1,6 +1,6 @@
 {
   "name": "collapse-transition",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "无渲染过渡组件，通过动态测量高度与 max-height 动画，为面板展开/收起提供平滑、可打断、性能友好的折叠动效。",
   "files": [
     {

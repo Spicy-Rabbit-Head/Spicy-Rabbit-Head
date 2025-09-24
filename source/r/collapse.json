@@ -1,6 +1,6 @@
 {
   "name": "collapse",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "用于将内容进行折叠和展开，节省页面空间。",
   "files": [
     {
@@ -29,7 +29,7 @@
     }
   ],
   "dependencies": ["vue", "@pocui/config", "@pocui/hooks", "@pocui/utils"],
-  "registryDependencies": ["collapse-transition", "icon", "collapse.scss"],
+  "registryDependencies": ["collapse.scss", "collapse-transition", "icon"],
   "categories": ["display"],
   "meta": { "isReferenceOnly": false }
 }

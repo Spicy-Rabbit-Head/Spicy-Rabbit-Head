@@ -1,6 +1,6 @@
 {
   "name": "confirm",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "通常用于一些重要操作的二次确认，以降低用户误操作的概率。",
   "files": [
     {

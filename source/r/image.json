@@ -1,6 +1,6 @@
 {
   "name": "image",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "用于为图片显示快速提供占位、懒加载等功能。",
   "files": [
     {

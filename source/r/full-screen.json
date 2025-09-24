@@ -1,6 +1,6 @@
 {
   "name": "full-screen",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "这个组件将帮助你快速实现全屏展示一些内容。",
   "files": [
     {
@@ -21,7 +21,7 @@
     }
   ],
   "dependencies": ["vue", "@pocui/config", "@pocui/hooks", "@pocui/utils"],
-  "registryDependencies": ["portal", "full-screen.scss"],
+  "registryDependencies": ["full-screen.scss", "portal"],
   "categories": ["other"],
   "meta": { "isReferenceOnly": false }
 }

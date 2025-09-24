@@ -1,6 +1,6 @@
 {
   "name": "collapse-panel",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "Collapse 子面板组件，提供可点击的标题栏与内容区域。",
   "files": [
     {

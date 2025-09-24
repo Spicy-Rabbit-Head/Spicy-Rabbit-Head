@@ -1,6 +1,6 @@
 {
   "name": "date-picker",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "用于选择或输入一个日期。",
   "files": [
     {

@@ -1,6 +1,6 @@
 {
   "name": "config-provider",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "配置注入用于为其内部组件的提供各项配置。",
   "files": [
     {

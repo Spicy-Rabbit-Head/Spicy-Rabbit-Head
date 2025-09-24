@@ -1,6 +1,6 @@
 {
   "name": "button",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "基础通用组件，用于标记一组操作命令，由用户点击触发，响应用户并完成相应的业务逻辑。",
   "files": [
     {
@@ -25,7 +25,7 @@
     }
   ],
   "dependencies": ["vue", "@pocui/config", "@pocui/utils"],
-  "registryDependencies": ["button.scss", "badge", "collapse-transition", "form", "icon"],
+  "registryDependencies": ["badge", "collapse-transition", "form", "icon", "button.scss"],
   "categories": ["basic"],
   "meta": { "isReferenceOnly": false }
 }

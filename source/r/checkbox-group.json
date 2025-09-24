@@ -1,6 +1,6 @@
 {
   "name": "checkbox-group",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "用于将多个 Checkbox 组合在一起，形成一组复选框集合。",
   "files": [
     {

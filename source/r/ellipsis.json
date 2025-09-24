@@ -1,6 +1,6 @@
 {
   "name": "ellipsis",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "当有一段长到放不下的文本时，可以派上用场。",
   "files": [
     {
@@ -17,7 +17,7 @@
     }
   ],
   "dependencies": ["vue", "@pocui/config", "@pocui/hooks", "@pocui/utils"],
-  "registryDependencies": ["tooltip", "ellipsis.scss"],
+  "registryDependencies": ["ellipsis.scss", "tooltip"],
   "categories": ["display"],
   "meta": { "isReferenceOnly": false }
 }

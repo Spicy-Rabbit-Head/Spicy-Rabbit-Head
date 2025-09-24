@@ -1,6 +1,6 @@
 {
   "name": "bubble",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "气泡提示，用于展示提示、说明或轻量对话内容。",
   "files": [
     {

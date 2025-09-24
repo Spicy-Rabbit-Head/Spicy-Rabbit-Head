@@ -1,6 +1,6 @@
 {
   "name": "contextmenu",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "对于一些交互逻辑较多的页面，可以将一些操作置于右键菜单中，以方便用户快速选择。",
   "files": [
     {
@@ -20,12 +20,12 @@
       "content": "import type { AnyFn, MaybeInstance } from '@pocui/hooks'\nimport type { ComponentPublicInstance, MaybeRef } from 'vue'\n\nexport type Key = string | number\n\nexport interface ContextMenuConfig {\n  key: Key,\n\n  label?: string,\n\n  icon?: string | AnyFn,\n\n  color?: string,\n\n  iconColor?: string,\n\n  shortcut?: string,\n\n  divided?: boolean,\n\n  disabled?: boolean,\n\n  children?: ContextMenuConfig[],\n\n  renderer?: () => any\n}\n\nexport interface ContextMenuOptions {\n  clientX: number,\n\n  clientY: number,\n\n  configs: ContextMenuConfig[],\n\n  target?: MaybeRef<string | MaybeInstance | EventTarget>,\n\n  appear?: boolean\n}\n\nexport interface ContextMenuInstance extends ComponentPublicInstance {\n  openContextMenu: (options: ContextMenuOptions) => Promise<Key[] | null>,\n\n  handleCancel: () => void\n}\n"
     }
   ],
-  "dependencies": ["vue", "@pocui/config", "@pocui/utils", "@pocui/hooks"],
+  "dependencies": ["vue", "@pocui/hooks", "@pocui/utils", "@pocui/config"],
   "registryDependencies": [
+    "contextmenu.scss",
     "dropdown",
     "dropdown-list",
     "renderer",
-    "contextmenu.scss",
     "dropdown-item",
     "icon"
   ],

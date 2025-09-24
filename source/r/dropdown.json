@@ -1,6 +1,6 @@
 {
   "name": "dropdown",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "展示一组折叠的下拉菜单。",
   "files": [
     {
