@@ -20,7 +20,7 @@
       "content": "export type AlertType = 'default' | 'primary' | 'info' | 'success' | 'warning' | 'error'\n\nexport const alertTypes = Object.freeze<AlertType[]>([\n  'default',\n  'primary',\n  'info',\n  'success',\n  'warning',\n  'error'\n])\n"
     }
   ],
-  "dependencies": ["vue", "@pocui/config", "@pocui/utils"],
+  "dependencies": ["vue", "@pillars-of-creation-ui/config", "@pillars-of-creation-ui/utils"],
   "registryDependencies": ["collapse-transition", "icon", "alert.scss"],
   "categories": ["feedback"],
   "meta": { "isReferenceOnly": false }
