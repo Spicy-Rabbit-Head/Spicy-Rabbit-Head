@@ -68,5 +68,5 @@
       "content": "@use 'sass:map';\r\n\r\n@use './shared' as *;\r\n@use './design' as *;\r\n@use './animation';\r\n\r\n:root,\r\n.#{$namespace}-theme-vars-base {\r\n  @include define-theme-styles;\r\n}\r\n\r\nbody {\r\n  -webkit-font-smoothing: antialiased;\r\n  -moz-osx-font-smoothing: grayscale;\r\n  -webkit-tap-highlight-color: transparent;\r\n}\r\n"
     }
   ],
-  "dependencies": ["vue", "@pocui/config", "@pocui/utils"]
+  "dependencies": ["vue", "@pillars-of-creation-ui/config", "@pillars-of-creation-ui/utils"]
 }
