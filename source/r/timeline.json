@@ -1,6 +1,6 @@
 {
   "name": "timeline",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "常用于循序渐进的展示一些内容。",
   "files": [
     {

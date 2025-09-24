@@ -1,6 +1,6 @@
 {
   "name": "time-ago",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "相对时间组件，用于显示相对于当前时间的时间段。",
   "files": [
     {

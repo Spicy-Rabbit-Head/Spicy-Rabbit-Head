@@ -1,6 +1,6 @@
 {
   "name": "tour",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "常用于引导用户了解如何使用某些功能。",
   "files": [
     {

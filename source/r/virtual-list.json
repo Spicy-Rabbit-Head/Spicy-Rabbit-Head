@@ -1,6 +1,6 @@
 {
   "name": "virtual-list",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "虚拟列表组件，用于高效渲染大量数据列表。",
   "files": [
     {

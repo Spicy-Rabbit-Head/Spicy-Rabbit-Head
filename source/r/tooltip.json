@@ -1,6 +1,6 @@
 {
   "name": "tooltip",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "用于需要在特定元素周围弹出一下拓展信息。",
   "files": [
     {

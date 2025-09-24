@@ -1,6 +1,6 @@
 {
   "name": "scrollbar",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "滚动条组件，提供自定义样式的滚动条控制功能",
   "files": [
     {

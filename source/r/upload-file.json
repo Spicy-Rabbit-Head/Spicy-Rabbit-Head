@@ -1,6 +1,6 @@
 {
   "name": "upload-file",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "上传文件组件，用于显示单个上传文件的状态和进度。",
   "files": [
     {

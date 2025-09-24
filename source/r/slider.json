@@ -1,6 +1,6 @@
 {
   "name": "slider",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "通过滑动来选定值。",
   "files": [
     {

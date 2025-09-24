@@ -1,6 +1,6 @@
 {
   "name": "transfer",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "穿梭框组件，用于在两个列表之间转移选择项。",
   "files": [
     {

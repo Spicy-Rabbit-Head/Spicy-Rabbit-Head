@@ -1,6 +1,6 @@
 {
   "name": "textarea",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "通过键入内容输入数据，常用于内容较多、需要多行显示的场合。",
   "files": [
     {

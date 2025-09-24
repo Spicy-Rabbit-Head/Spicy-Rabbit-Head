@@ -1,6 +1,6 @@
 {
   "name": "skeleton",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "一个占位符，常用于需要等待加载的地方。",
   "files": [
     {

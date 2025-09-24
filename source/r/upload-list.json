@@ -1,6 +1,6 @@
 {
   "name": "upload-list",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "上传列表组件，用于管理和显示多个上传文件。",
   "files": [
     {

@@ -1,6 +1,6 @@
 {
   "name": "switch",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "常用于需要形象地切换正反状态的场合。",
   "files": [
     {

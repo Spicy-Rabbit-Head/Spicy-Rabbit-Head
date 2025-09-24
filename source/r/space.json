@@ -1,6 +1,6 @@
 {
   "name": "space",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "快速为一系列元素提供统一的间距。",
   "files": [
     {

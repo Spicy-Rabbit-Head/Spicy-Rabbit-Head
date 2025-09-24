@@ -1,6 +1,6 @@
 {
   "name": "skeleton-group",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "骨架屏组组件，用于批量管理和控制多个骨架屏的加载状态",
   "files": [
     {

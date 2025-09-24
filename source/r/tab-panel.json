@@ -1,6 +1,6 @@
 {
   "name": "tab-panel",
-  "type": "registry:component",
+  "type": "registry:components",
   "description": "标签面板组件，作为标签页的内容面板。",
   "files": [
     {
