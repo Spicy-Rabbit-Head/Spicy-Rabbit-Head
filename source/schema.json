@@ -8,6 +8,21 @@
       "type": "string",
       "description": "JSON Schema 引用"
     },
+    "aliases": {
+      "type": "object",
+      "description": "路径别名配置",
+      "properties": {
+        "components": {
+          "type": "string",
+          "description": "组件目录路径"
+        },
+        "ui": {
+          "type": "string",
+          "description": "UI 组件目录路径"
+        }
+      },
+      "additionalProperties": false
+    },
     "dependencies": {
       "type": "object",
       "description": "项目依赖",
@@ -15,37 +30,12 @@
         "type": "string"
       }
     },
-    "registryDependencies": {
-      "type": "array",
-      "description": "已安装的注册依赖",
-      "items": {
-        "type": "string"
-      }
-    },
     "components": {
       "type": "array",
       "description": "已安装的组件列表",
       "items": {
-        "type": "object",
-        "required": [
-          "name"
-        ],
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "组件名称"
-          },
-          "version": {
-            "type": "string",
-            "description": "组件版本",
-            "pattern": "^\\d+\\.\\d+\\.\\d+$"
-          },
-          "installedAt": {
-            "type": "string",
-            "format": "date-time",
-            "description": "安装时间戳"
-          }
-        }
+        "type": "string",
+        "description": "组件名称"
       }
     }
   }
