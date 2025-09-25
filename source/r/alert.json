@@ -1,6 +1,6 @@
 {
   "name": "alert",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "提供一个静态的警告提示，展现需要关注的内容，不会自动消失，可以由用户点击关闭。",
   "files": [
     {
