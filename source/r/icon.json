@@ -1,6 +1,6 @@
 {
   "name": "icon",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "用于在界面中渲染矢量图标或自定义 SVG，动态尺寸、旋转、脉冲动画等视觉状态。",
   "files": [
     {
