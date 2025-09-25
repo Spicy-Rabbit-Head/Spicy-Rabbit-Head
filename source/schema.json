@@ -37,6 +37,14 @@
         "type": "string",
         "description": "组件名称"
       }
+    },
+    "styles": {
+      "type": "array",
+      "description": "已安装的样式列表",
+      "items": {
+        "type": "string",
+        "description": "样式名称"
+      }
     }
   }
 }
