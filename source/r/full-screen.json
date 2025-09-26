@@ -1,6 +1,6 @@
 {
   "name": "full-screen",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "这个组件将帮助你快速实现全屏展示一些内容。",
   "files": [
     {

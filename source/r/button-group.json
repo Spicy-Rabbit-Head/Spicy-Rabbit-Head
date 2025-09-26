@@ -1,6 +1,6 @@
 {
   "name": "button-group",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "按钮组，用于将多个按钮组合在一起。",
   "files": [
     {

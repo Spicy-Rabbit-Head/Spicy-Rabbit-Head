@@ -1,6 +1,6 @@
 {
   "name": "dropdown-item",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "单条菜单项组件，是用户在下拉列表中执行命令的最小交互单元。",
   "files": [
     {

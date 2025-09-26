@@ -1,6 +1,6 @@
 {
   "name": "avatar-group",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "将多个 Avatar 组合在一起展示，支持头像数量限制和超出数量提示等功能。",
   "files": [
     {

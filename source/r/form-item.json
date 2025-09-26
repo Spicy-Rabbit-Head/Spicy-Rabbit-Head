@@ -1,6 +1,6 @@
 {
   "name": "form-item",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "单字段包装器，实现标签-控件-提示三件套及字段级验证。",
   "files": [
     {

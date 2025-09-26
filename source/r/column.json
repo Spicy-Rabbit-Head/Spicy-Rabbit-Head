@@ -1,6 +1,6 @@
 {
   "name": "column",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "栅格列组件，用于在栅格系统中定义列布局",
   "files": [
     {

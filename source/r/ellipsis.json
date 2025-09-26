@@ -1,6 +1,6 @@
 {
   "name": "ellipsis",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "当有一段长到放不下的文本时，可以派上用场。",
   "files": [
     {

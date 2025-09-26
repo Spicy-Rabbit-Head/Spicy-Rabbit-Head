@@ -1,6 +1,6 @@
 {
   "name": "form",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "用于需要收集、验证一些信息的时候，快速创建表单域。",
   "files": [
     {
@@ -40,13 +40,13 @@
       "content": "import { Modes, create, mode, test } from '@pocui/validation'\n\nexport interface Rule {\n  field: string,\n\n  message: string,\n\n  test: (value: unknown) => unknown\n}\n\nexport type SelfRules = Omit<Rule, 'field'>\n\nexport type Validator = Omit<Rule, 'field' | 'test'> & {\n  validator(value: unknown, model: Record<string, any>): boolean\n}\n\nconst DEFAULT_MESSAGE = '验证失败'\n\nexport async function validate(\n  rule: Rule[],\n  value: unknown,\n  model: Record<string, any>,\n  validator: Validator,\n  defaultMsg = DEFAULT_MESSAGE\n): Promise<string | undefined> {\n  if (validator) {\n    return validator.validator(value, model) ? void 0 : (validator.message ?? defaultMsg)\n  }\n\n  const suite = create((data = undefined) => {\n    mode(Modes.ONE)\n    rule.forEach((rule: Rule) => {\n      test(rule.field, rule.message ?? defaultMsg, () => {\n        rule.test(data)\n      })\n    })\n  })\n\n  const result = suite(value)\n\n  if (result.hasErrors()) {\n    return result.getError()?.message ?? defaultMsg\n  } else {\n    return void 0\n  }\n}\n"
     }
   ],
-  "dependencies": ["vue", "@pocui/config", "@pocui/utils", "@pocui/hooks", "@pocui/validation"],
+  "dependencies": ["vue", "@pocui/hooks", "@pocui/utils", "@pocui/validation", "@pocui/config"],
   "registryDependencies": [
-    "button",
-    "form.scss",
     "column",
     "icon",
     "tooltip",
+    "form.scss",
+    "button",
     "drawer",
     "form-item",
     "modal",

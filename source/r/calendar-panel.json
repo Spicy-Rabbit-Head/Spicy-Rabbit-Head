@@ -1,6 +1,6 @@
 {
   "name": "calendar-panel",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "日历面板组件，用于显示日历网格和日期选择。",
   "files": [
     {

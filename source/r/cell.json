@@ -1,6 +1,6 @@
 {
   "name": "cell",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "栅格子项，实现灵活的内容区域划分。",
   "files": [
     {

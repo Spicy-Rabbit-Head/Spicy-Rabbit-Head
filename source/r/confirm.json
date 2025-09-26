@@ -1,6 +1,6 @@
 {
   "name": "confirm",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "通常用于一些重要操作的二次确认，以降低用户误操作的概率。",
   "files": [
     {
@@ -20,8 +20,8 @@
       "content": "import type { ButtonType } from '@/components/button'\nimport type { IconMinorProps } from '@/components/icon'\nimport type { ComponentPublicInstance } from 'vue'\n\nexport type ConfirmButtonType = ButtonType\nexport type ConfirmAlign = 'left' | 'center' | 'right'\n\nexport interface ConfirmState {\n  visible: boolean,\n\n  loading: boolean,\n\n  title: string,\n\n  content: string,\n\n  icon: Record<string, any> | (() => any) | null | boolean | string,\n\n  iconProps: IconMinorProps,\n\n  className: string | Record<string, any>,\n\n  style: string | Record<string, any>,\n\n  confirmType: ConfirmButtonType,\n\n  cancelType: ConfirmButtonType,\n\n  confirmText: string,\n\n  cancelText: string,\n\n  maskClose: boolean,\n\n  parseHtml: boolean,\n\n  closable: boolean,\n\n  contentAlign: ConfirmAlign,\n\n  actionsAlign: ConfirmAlign,\n\n  cancelable: boolean,\n\n  width: number | string,\n\n  height: number | string,\n\n  top: number | string,\n\n  right: number | string,\n\n  bottom: number | string,\n\n  left: number | string,\n\n  xOffset: number | string,\n\n  yOffset: number | string,\n\n  raw: Record<any, any>\n}\n\nexport type ConfirmRenderFn = (\n  options: ConfirmState,\n  handleConfirm: () => Promise<void>,\n  handleCancel: () => void\n) => any\n\nexport interface ConfirmOptions extends Partial<Omit<ConfirmState, 'visible' | 'loading' | 'raw'>>, Record<any, any> {\n  renderer?: ConfirmRenderFn,\n\n  onBeforeConfirm?: () => unknown\n}\n\nexport interface ConfirmInstance extends ComponentPublicInstance {\n  openConfirm: (options: ConfirmOptions) => Promise<boolean>,\n\n  handleReset: () => void\n}\n"
     }
   ],
-  "dependencies": ["vue", "@pocui/hooks", "@pocui/utils", "@pocui/config"],
-  "registryDependencies": ["confirm.scss", "button", "icon", "modal", "renderer"],
+  "dependencies": ["vue", "@pocui/config", "@pocui/utils", "@pocui/hooks"],
+  "registryDependencies": ["button", "icon", "modal", "renderer", "confirm.scss"],
   "categories": ["feedback"],
   "meta": { "isReferenceOnly": false }
 }

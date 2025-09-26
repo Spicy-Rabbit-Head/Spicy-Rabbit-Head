@@ -1,6 +1,6 @@
 {
   "name": "calendar",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "将数据按照日历的形式展示的容器，一般用于数据按日期划分的场合，例如日程表、课表等等。",
   "files": [
     {
@@ -28,7 +28,7 @@
       "content": "export type WeekIndex = 1 | 2 | 3 | 4 | 5 | 6 | 7\nexport type MonthIndex = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12\n"
     }
   ],
-  "dependencies": ["vue", "@pocui/config", "@pocui/utils", "@pocui/hooks"],
+  "dependencies": ["vue", "@pocui/config", "@pocui/hooks", "@pocui/utils"],
   "registryDependencies": ["calendar.scss", "column", "number-input", "row"],
   "categories": ["display"],
   "meta": { "isReferenceOnly": false }

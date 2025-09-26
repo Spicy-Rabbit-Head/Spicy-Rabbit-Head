@@ -1,6 +1,6 @@
 {
   "name": "carousel-item",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "走马灯的单个子项，通常由 Carousel 组件使用。",
   "files": [
     {

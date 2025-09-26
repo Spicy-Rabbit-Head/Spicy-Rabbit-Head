@@ -1,6 +1,6 @@
 {
   "name": "cascader",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "当需要从一组相关联的数据集合进行一系列选择时使用，常用于在选择省市区、分类的事物等。",
   "files": [
     {
@@ -24,19 +24,19 @@
       "content": "export type Data = Record<string, any>\nexport type CascaderValue = (string | number)[] | (string | number)[][]\n\nexport interface CascaderKeyConfig {\n  value?: string,\n\n  label?: string,\n\n  children?: string,\n\n  disabled?: string,\n\n  hasChild?: string\n}\n\nexport type CascaderOptionState =\n  | {\n    id: number,\n\n    parent: number,\n\n    value: string | number,\n\n    fullValue: string,\n\n    label: string,\n\n    fullLabel: string,\n\n    children: CascaderOptionState[],\n\n    disabled: boolean,\n\n    hasChild: boolean,\n\n    checked: boolean,\n\n    partial: boolean,\n\n    loading: boolean,\n\n    loaded: boolean,\n\n    error: boolean,\n\n    childrenLoaded: boolean,\n\n    data: Data\n  }\n  | Record<string, any>\n"
     }
   ],
-  "dependencies": ["vue", "@pocui/hooks", "@pocui/config", "@pocui/utils"],
+  "dependencies": ["vue", "@pocui/config", "@pocui/hooks", "@pocui/utils"],
   "registryDependencies": [
-    "form",
+    "checkbox",
     "icon",
+    "option",
+    "virtual-list",
+    "cascader.scss",
+    "form",
     "native-scroll",
     "overflow",
     "popper",
     "tag",
-    "tooltip",
-    "cascader.scss",
-    "checkbox",
-    "option",
-    "virtual-list"
+    "tooltip"
   ],
   "categories": ["form"],
   "meta": { "isReferenceOnly": false }

@@ -1,6 +1,6 @@
 {
   "name": "badge",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "在界面元素上附加视觉化提示信息（数量、状态、标识等）。",
   "files": [
     {
@@ -20,7 +20,7 @@
       "content": "export type BadgeType = 'error' | 'primary' | 'success' | 'warning' | 'info' | 'disabled'\n\nexport const badgeTypes = Object.freeze<BadgeType[]>([\n  'error',\n  'primary',\n  'success',\n  'warning',\n  'info',\n  'disabled'\n])\n"
     }
   ],
-  "dependencies": ["vue", "@pillars-of-creation-ui/config"],
+  "dependencies": ["vue", "@pocui/config"],
   "registryDependencies": ["badge.scss"],
   "categories": ["display"],
   "meta": { "isReferenceOnly": false }

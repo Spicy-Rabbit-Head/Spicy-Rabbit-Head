@@ -1,6 +1,6 @@
 {
   "name": "fireworks",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "绚丽的烟花特效，适用于庆祝或特殊场合的视觉展示。",
   "files": [
     {

@@ -1,6 +1,6 @@
 {
   "name": "dropdown-list",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "下拉面板容器。",
   "files": [
     {
