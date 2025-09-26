@@ -1,6 +1,6 @@
 {
   "name": "tour-step",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "漫游步骤组件，作为漫游引导的单个步骤项。",
   "files": [
     {

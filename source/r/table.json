@@ -1,6 +1,6 @@
 {
   "name": "table",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "用于展示结构化二维数据，可以快速实对数据进行排序、搜索、分组、编辑、分页、汇总等操作。",
   "files": [
     {

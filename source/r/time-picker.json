@@ -1,6 +1,6 @@
 {
   "name": "time-picker",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "当你需要选择时间或时间范围时会用到它。",
   "files": [
     {

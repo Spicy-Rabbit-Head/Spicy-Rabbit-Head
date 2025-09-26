@@ -1,6 +1,6 @@
 {
   "name": "table-column",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "表格列组件，用于定义表格的列结构和数据显示方式。",
   "files": [
     {

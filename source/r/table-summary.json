@@ -1,6 +1,6 @@
 {
   "name": "table-summary",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "表格汇总组件，用于定义表格的汇总行数据显示。",
   "files": [
     {

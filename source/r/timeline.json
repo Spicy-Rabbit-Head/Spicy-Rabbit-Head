@@ -1,6 +1,6 @@
 {
   "name": "timeline",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "常用于循序渐进的展示一些内容。",
   "files": [
     {
@@ -24,7 +24,7 @@
       "content": "<script setup lang=\"ts\">\nimport { computed, provide, reactive, toRef } from 'vue'\n\nimport { emitEvent, useNameHelper, useProps } from '@pocui/config'\nimport { debounceMinor, isNullish } from '@pocui/utils'\nimport { timelineProps } from './props'\n\nimport { TIMELINE_STATE } from './symbol'\n\nimport type { ItemState, TimelineState } from './symbol'\n\ndefineOptions({ name: 'Timeline',\n  description:'常用于循序渐进的展示一些内容。',\n  categories: ['display'] })\n\nconst _props = defineProps(timelineProps)\nconst props = useProps('timeline', _props, {\n  pending: false,\n  dashed: false,\n  lineColor: null,\n  spacing: null,\n  flip: false,\n  horizontal: false,\n  alternate: false\n})\n\nconst nh = useNameHelper('timeline')\nconst itemStates = reactive(new Set<ItemState>())\n\nconst className = computed(() => {\n  return {\n    [nh.b()]: true,\n    [nh.bs('vars')]: true,\n    [nh.in()]: props.inherit,\n    [nh.bm('pending')]: props.pending,\n    [nh.bm('alternate')]: props.alternate,\n    [nh.bm('flip')]: props.flip,\n    [nh.bm('horizontal')]: props.horizontal\n  }\n})\nconst height = computed(() => {\n  return Math.max(...Array.from(itemStates).map(state => state.height)) * 2\n})\n\ndefineExpose({ itemStates })\n\nconst refreshLabels = debounceMinor(() => {\n  const total = itemStates.size\n\n  Array.from(itemStates).forEach((item, index) => {\n    item.index = index + 1\n    item.total = total\n\n    if (isNullish(item.label)) {\n      item.label = index + 1\n    }\n  })\n})\n\nconst state: TimelineState = reactive({\n  dashed: toRef(props, 'dashed'),\n  lineColor: toRef(props, 'lineColor'),\n  spacing: toRef(props, 'spacing'),\n  alternate: toRef(props, 'alternate'),\n  horizontal: toRef(props, 'horizontal'),\n  increaseItem,\n  decreaseItem,\n  handleSignalClick\n})\n\nprovide(TIMELINE_STATE, state)\n\nfunction increaseItem(item: ItemState) {\n  itemStates.add(item)\n  refreshLabels()\n}\n\nfunction decreaseItem(item: ItemState) {\n  itemStates.delete(item)\n  refreshLabels()\n}\n\nfunction handleSignalClick(label: string | number) {\n  emitEvent(props.onSignalClick, label)\n}\n</script>\n\n<template>\n  <div :class=\"className\" :style=\"{ height: props.horizontal && props.alternate ? `${height}px` : undefined }\">\n    <slot></slot>\n  </div>\n</template>\n"
     }
   ],
-  "dependencies": ["vue", "@pocui/config", "@pocui/utils"],
+  "dependencies": ["@pocui/config", "vue", "@pocui/utils"],
   "registryDependencies": ["timeline.scss"],
   "categories": ["display"],
   "meta": { "isReferenceOnly": false }

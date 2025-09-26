@@ -1,6 +1,6 @@
 {
   "name": "video",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "快速为视频播放创建一系列控件。",
   "files": [
     {

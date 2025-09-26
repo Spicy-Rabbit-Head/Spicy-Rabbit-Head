@@ -1,6 +1,6 @@
 {
   "name": "table-column-group",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "表格列组组件，用于对相关的表格列进行分组管理。",
   "files": [
     {

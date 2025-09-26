@@ -1,6 +1,6 @@
 {
   "name": "tab-nav-item",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "标签导航项组件，作为标签导航栏的单个标签项。",
   "files": [
     {
