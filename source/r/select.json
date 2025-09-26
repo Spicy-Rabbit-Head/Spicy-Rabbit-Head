@@ -1,6 +1,6 @@
 {
   "name": "select",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "下拉选择器，当有较多的选项供用户选择时使用，选项较少时或许 RadioGroup 或 CheckboxGroup 的效果会更好。",
   "files": [
     {
@@ -25,10 +25,10 @@
     "select.scss",
     "icon",
     "tag",
+    "option",
     "form",
     "input",
     "native-scroll",
-    "option",
     "overflow",
     "popper",
     "tooltip",

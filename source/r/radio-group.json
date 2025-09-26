@@ -1,6 +1,6 @@
 {
   "name": "radio-group",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "单选框组组件，用于管理一组单选框的选择状态",
   "files": [
     {

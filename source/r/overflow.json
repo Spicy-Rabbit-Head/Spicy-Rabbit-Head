@@ -1,6 +1,6 @@
 {
   "name": "overflow",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "用于在内容宽度/高度超出指定阈值时自动渲染更多等，保持界面整洁。",
   "files": [
     {

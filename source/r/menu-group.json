@@ -1,6 +1,6 @@
 {
   "name": "menu-group",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "可折叠分组，提供标题栏与内部菜单项的展开/收起控制，实现二级及以上层级收纳。",
   "files": [
     {

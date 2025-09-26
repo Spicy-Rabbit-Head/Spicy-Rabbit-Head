@@ -1,6 +1,6 @@
 {
   "name": "popper",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "弹出层组件，用于定位和显示浮动内容，如提示框、下拉菜单等。",
   "files": [
     {

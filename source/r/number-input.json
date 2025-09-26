@@ -1,6 +1,6 @@
 {
   "name": "number-input",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "通常用在需要以更友好的交互进行数字的输入的场合。",
   "files": [
     {
@@ -21,7 +21,7 @@
     }
   ],
   "dependencies": ["vue", "@pocui/hooks", "@pocui/config"],
-  "registryDependencies": ["number-input.scss", "form", "icon"],
+  "registryDependencies": ["form", "icon", "number-input.scss"],
   "categories": ["form"],
   "meta": { "isReferenceOnly": false }
 }

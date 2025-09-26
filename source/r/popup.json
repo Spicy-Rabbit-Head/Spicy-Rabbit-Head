@@ -1,6 +1,6 @@
 {
   "name": "popup",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "弹出框组件，用于在页面中创建模态或非模态的弹出内容。",
   "files": [
     {

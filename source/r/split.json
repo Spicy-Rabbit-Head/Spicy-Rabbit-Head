@@ -1,6 +1,6 @@
 {
   "name": "split",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "快速实现左右、上下分屏。",
   "files": [
     {

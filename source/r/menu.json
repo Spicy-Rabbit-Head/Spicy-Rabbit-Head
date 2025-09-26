@@ -1,6 +1,6 @@
 {
   "name": "menu",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "为页面和功能提供导航的菜单列表。",
   "files": [
     {
@@ -36,9 +36,9 @@
   "registryDependencies": [
     "menu.scss",
     "menu-item",
-    "collapse-transition",
     "icon",
     "popper",
+    "collapse-transition",
     "tooltip",
     "menu-group",
     "overflow"

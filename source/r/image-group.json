@@ -1,6 +1,6 @@
 {
   "name": "image-group",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "图片组容器，简化图集排版。",
   "files": [
     {

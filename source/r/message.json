@@ -1,6 +1,6 @@
 {
   "name": "message",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "常用于全局展示一些轻量级的交互反馈信息，如操作成功、失败等。",
   "files": [
     {
@@ -16,8 +16,8 @@
       "content": "import type { ComponentPublicInstance } from 'vue'\n\nexport type Key = string | number\nexport type MessageType = 'primary' | 'info' | 'success' | 'warning' | 'error'\nexport type MessagePlacement = 'top' | 'bottom'\n\nexport interface MessageOptions extends Record<string, any> {\n  content?: string,\n\n  key?: Key,\n\n  icon?: Record<string, any> | (() => any) | string,\n\n  iconColor?: string,\n\n  type?: MessageType | null,\n\n  duration?: number,\n\n  className?: string | Record<string, any>,\n\n  style?: string | Record<string, any>,\n\n  zIndex?: number,\n\n  background?: boolean | string,\n\n  color?: boolean | string,\n\n  closable?: boolean,\n\n  parseHtml?: boolean,\n\n  liveOnEnter?: boolean,\n\n  renderer?: () => any\n}\n\nexport interface MessageConfig {\n  placement?: MessagePlacement\n}\n\nexport interface MessageInstance extends ComponentPublicInstance {\n  add: (options: MessageOptions) => void,\n\n  remove: (key: string | number) => void,\n\n  clear: () => void,\n\n  config: (config: MessageConfig) => void\n}\n\nexport const effectiveTypes = Object.freeze(['primary', 'info', 'success', 'warning', 'error'])\n\nexport const assertiveTypes = Object.freeze(['success', 'warning', 'error'])\n"
     }
   ],
-  "dependencies": ["vue", "@pocui/hooks", "@pocui/utils", "@pocui/config"],
-  "registryDependencies": ["message.scss", "icon", "popup", "renderer"],
+  "dependencies": ["vue", "@pocui/config", "@pocui/hooks", "@pocui/utils"],
+  "registryDependencies": ["icon", "popup", "renderer", "message.scss"],
   "categories": ["feedback"],
   "meta": { "isReferenceOnly": false }
 }

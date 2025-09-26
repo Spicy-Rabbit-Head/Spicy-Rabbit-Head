@@ -1,6 +1,6 @@
 {
   "name": "spin",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "为一个区块启用加载中状态的快速切换，常用在数据渲染或异步处理耗时较长的场合，以避免用户长时间无法获得有效反馈。",
   "files": [
     {

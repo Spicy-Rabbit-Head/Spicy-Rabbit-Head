@@ -1,6 +1,6 @@
 {
   "name": "loading",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "通常用于反馈一些全局的加载状态，如页面路由切换、全局请求等。",
   "files": [
     {
@@ -16,7 +16,7 @@
       "content": "import type { ComponentPublicInstance } from 'vue'\n\nexport type LoadingState = 'default' | 'success' | 'error' | 'warning'\nexport type LoadingPosition = 'top' | 'bottom'\n\nexport interface LoadingOptions {\n  percent: number,\n  strokeWidth?: number,\n  state?: LoadingState,\n  position?: LoadingPosition,\n  maxPercent?: number\n}\n\nexport interface LoadingInstance extends ComponentPublicInstance {\n  startLoading: (options: LoadingOptions) => void\n}\n"
     }
   ],
-  "dependencies": ["vue", "@pocui/hooks", "@pocui/utils", "@pocui/config"],
+  "dependencies": ["vue", "@pocui/config", "@pocui/utils", "@pocui/hooks"],
   "registryDependencies": ["loading.scss"],
   "categories": ["feedback"],
   "meta": { "isReferenceOnly": false }

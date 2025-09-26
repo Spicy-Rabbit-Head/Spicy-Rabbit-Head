@@ -1,6 +1,6 @@
 {
   "name": "menu-item",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "单条菜单节点，支持图标、选中、禁用、跳转与点击事件，是用户执行导航或操作的最小单元。",
   "files": [
     {

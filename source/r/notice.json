@@ -1,6 +1,6 @@
 {
   "name": "notice",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "常用于全局展示一些较重量级的交互反馈信息，如操作操作失败时的具体错误信息等。",
   "files": [
     {

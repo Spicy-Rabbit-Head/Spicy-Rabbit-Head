@@ -1,6 +1,6 @@
 {
   "name": "resize-observer",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "尺寸监听组件，用于监听元素尺寸变化并触发回调",
   "files": [
     {
@@ -16,7 +16,7 @@
       "content": "import { defineComponent, getCurrentInstance, onBeforeUnmount, onMounted, renderSlot, watch } from 'vue'\n\nimport { emitEvent, useProps } from '@pocui/config'\nimport { useResize } from '@pocui/hooks'\nimport { isBoolean, throttle } from '@pocui/utils'\nimport { resizeObserverProps } from './props'\n\nexport default defineComponent({\n  name: 'ResizeObserver',\n  description:'尺寸监听组件，用于监听元素尺寸变化并触发回调',\n  categories: ['other'],\n  props: resizeObserverProps,\n  setup(_props, { slots }) {\n    const props = useProps('resizeObserver', _props, {\n      throttle: {\n        default: false,\n        validator: value => typeof value === 'boolean' || value > 0\n      },\n      disabled: false\n    })\n\n    const { observeResize, unobserveResize } = useResize()\n\n    let observed = false\n\n    function handleResize(entry: ResizeObserverEntry) {\n      emitEvent(props.onResize, entry)\n    }\n\n    const throttleResize = props.throttle\n      ? throttle(handleResize, isBoolean(props.throttle) ? 16 : props.throttle)\n      : handleResize\n\n    const instance = getCurrentInstance()\n\n    onMounted(() => {\n      watch(\n        () => props.disabled,\n        value => {\n          value ? unobserve() : observe()\n        },\n        {\n          immediate: true,\n          flush: 'post'\n        }\n      )\n    })\n\n    onBeforeUnmount(() => {\n      if (observed) {\n        const el = getCurrentInstance()?.proxy?.$el as Element | null\n\n        if (el?.nextElementSibling) {\n          unobserveResize(el.nextElementSibling)\n        }\n      }\n    })\n\n    function observe() {\n      if (observed) return\n\n      const el = instance?.proxy?.$el as Element | null\n\n      if (el?.nextElementSibling) {\n        if (el.nextElementSibling !== el.nextSibling && el.nodeType === 3 && el.nodeValue !== '') {\n          return\n        }\n\n        observeResize(el.nextElementSibling, throttleResize)\n        observed = true\n      }\n    }\n\n    function unobserve() {\n      if (observed) {\n        const el = instance?.proxy?.$el as Element | null\n\n        if (el?.nextElementSibling) {\n          unobserveResize(el.nextElementSibling)\n        }\n\n        observed = false\n      }\n    }\n\n    return () => renderSlot(slots, 'default')\n  }\n})\n"
     }
   ],
-  "dependencies": ["vue", "@pocui/config", "@pocui/hooks", "@pocui/utils"],
+  "dependencies": ["@pocui/config", "vue", "@pocui/hooks", "@pocui/utils"],
   "registryDependencies": ["resize-observer.scss"],
   "categories": ["other"],
   "meta": { "isReferenceOnly": false }

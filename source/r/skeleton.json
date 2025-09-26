@@ -1,6 +1,6 @@
 {
   "name": "skeleton",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "一个占位符，常用于需要等待加载的地方。",
   "files": [
     {
@@ -24,7 +24,7 @@
       "content": "import type { ComponentSize } from '@pocui/config'\nimport type { InjectionKey } from 'vue'\n\nexport interface GroupState {\n  size: ComponentSize,\n\n  itemTag: string,\n\n  activated: boolean,\n\n  round: boolean,\n\n  circle: boolean,\n\n  block: boolean,\n\n  loading: boolean\n}\n\nexport const GROUP_STATE: InjectionKey<GroupState> = Symbol('GROUP_STATE')\n"
     }
   ],
-  "dependencies": ["vue", "@pocui/config"],
+  "dependencies": ["@pocui/config", "vue"],
   "registryDependencies": ["skeleton.scss", "icon"],
   "categories": ["display"],
   "meta": { "isReferenceOnly": false }

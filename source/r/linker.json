@@ -1,6 +1,6 @@
 {
   "name": "linker",
-  "type": "registry:components",
+  "type": "registry:component",
   "description": "Linker 用于在页面间导航，支持多种类型、图标和禁用状态。",
   "files": [
     {
