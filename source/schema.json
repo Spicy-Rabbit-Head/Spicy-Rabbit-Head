@@ -45,6 +45,13 @@
         "type": "string",
         "description": "样式名称"
       }
+    },
+    "renames": {
+      "type": "object",
+      "description": "组件重命名映射",
+      "additionalProperties": {
+        "type": "string"
+      }
     }
   }
 }
